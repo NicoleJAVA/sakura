@@ -21,6 +21,6 @@ module.exports = {
         functions: 'ignore',
       },
     ],
-    semi: 'warn',
+    semi: ['warn', 'always']
   },
 }
