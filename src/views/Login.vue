@@ -47,5 +47,29 @@ export default {
       },
     };
   },
+
+  methods: {
+    signIn () {
+      const api = `${process.env.VUE_APP_API}/admin/signin`;
+      console.log('API', api);
+
+      this.$http
+        .post(api, this.user)
+        .then(response => {
+          const { token, expired } = response.data;
+          console.log('token and expired: ', token, expired);
+
+          // 請問助教： 以下這行印出 response 後，
+          // response.data 所印出來的內容只有 message, success 和 uid，
+          // 但是沒有 token 和 expired 。 謝謝助教！
+          console.log('response: ', response);
+
+          document.cookie = `sellerToken=${token}; expires=${new Date(expired)}`;
+        })
+        .catch(error => {
+          console.log('Faild to sign in: ', error);
+        });
+    },
+  },
 };
 </script>
