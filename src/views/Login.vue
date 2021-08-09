@@ -45,7 +45,7 @@ export default {
         username: '',
         password: '',
       },
-    }
+    };
   },
-}
+};
 </script>
