@@ -225,6 +225,11 @@ export default {
       },
     },
   },
+  watch: {
+    product () {
+      this.tempProduct = this.product;
+    },
+  },
   methods: {
     showModal () {
       this.modal.show();

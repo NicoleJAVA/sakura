@@ -1,6 +1,6 @@
 <template>
   <div class="text-end">
-    <button class="btn btn-primary" type="button" @click="openModal">
+    <button class="btn btn-primary" type="button" @click="openModal(true)">
       新增一個產品
     </button>
   </div>
@@ -31,7 +31,12 @@
         </td>
         <td>
           <div class="btn-group">
-            <button class="btn btn-outline-primary btn-sm">編輯</button>
+            <button
+              class="btn btn-outline-primary btn-sm"
+              @click="openModal(false, item)"
+            >
+              編輯
+            </button>
             <button class="btn btn-outline-danger btn-sm">刪除</button>
           </div>
         </td>
@@ -41,6 +46,7 @@
   <ProductModal
     ref="productModal"
     :product="tempProduct"
+    @update-product="updateProduct"
   ></ProductModal>
 </template>
 
@@ -53,6 +59,7 @@ export default {
       products: [],
       pagination: {},
       tempProduct: {},
+      isNew: false,
     };
   },
 
@@ -75,9 +82,25 @@ export default {
       });
     },
 
-    openModal () {
-      this.tempProduct = {};
+    openModal (isNew, item) {
+      if (isNew) {
+        this.tempProduct = {};
+      } else {
+        this.tempProduct = { ...item };
+      }
+      this.isNew = isNew;
       this.$refs.productModal.showModal();
+    },
+
+    updateProduct (item) {
+      this.tempProduct = item;
+      let api = this.$api + '/admin/product';
+      if (!this.isNew) api += `/${item.id}`;
+      const httpMethod = this.isNew ? 'post' : 'put';
+
+      this.$http[httpMethod](api, { data: this.tempProduct }).then(response => {
+        this.getProducts();
+      });
     },
   },
 
