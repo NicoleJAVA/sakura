@@ -24,9 +24,25 @@
           <router-link to="/dashboard/coupons" class="nav-link"
             >優惠券</router-link
           >
+          <a href="#" @click.prevent="logout" class="nav-link">登出</a>
         </div>
       </div>
     </div>
   </nav>
 </template>
 
+<script>
+export default {
+  methods: {
+    logout () {
+      const api = `${process.env.VUE_APP_API}/logout`;
+      this.$http.post(api, null).then(response => {
+        if (response.data.success) {
+          console.log('Successfully logged out.');
+          this.$router.push('/login');
+        }
+      });
+    },
+  },
+};
+</script>
