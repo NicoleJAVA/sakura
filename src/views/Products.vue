@@ -53,7 +53,11 @@
     :product="tempProduct"
     @update-product="updateProduct"
   ></ProductModal>
-  <DeleteModal ref="deleteModal" :item="tempProduct"></DeleteModal>
+  <DeleteModal
+    ref="deleteModal"
+    :item="tempProduct"
+    @del-item="deleteProduct"
+  ></DeleteModal>
 </template>
 
 <script>
@@ -115,6 +119,15 @@ export default {
       this.tempProduct = item;
       const deleteProductModal = this.$refs.deleteModal;
       deleteProductModal.showModal();
+    },
+
+    deleteProduct () {
+      const api = this.$api + '/admin/product/' + this.tempProduct.id;
+      this.$http.delete(api).then(response => {
+        const deleteModal = this.$refs.deleteModal;
+        deleteModal.hideModal();
+        this.getProducts();
+      });
     },
   },
 
