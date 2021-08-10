@@ -62,7 +62,7 @@ export default {
 
   methods: {
     getProducts () {
-      const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/products`;
+      const api = this.$api + '/admin/products';
       this.$http.get(api).then(response => {
         if (!response.data.success) {
           console.warn('Failed to get products:', response.data.message);
