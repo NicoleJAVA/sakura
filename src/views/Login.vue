@@ -66,7 +66,7 @@ export default {
           document.cookie = `sellerToken=${token}; expires=${new Date(
             expired,
           )}`;
-          this.$router.push('/dashboard');
+          this.$router.push('/dashboard/products');
         })
         .catch(error => {
           console.log('Failed to sign in: ', error);
