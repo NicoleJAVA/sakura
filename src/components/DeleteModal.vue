@@ -46,3 +46,19 @@
     </div>
   </div>
 </template>
+
+<script>
+import modalMixin from '@/mixins/modalMixin';
+
+export default {
+  props: {
+    item: {},
+  },
+  data () {
+    return {
+      modal: '',
+    };
+  },
+  mixins: [modalMixin],
+};
+</script>

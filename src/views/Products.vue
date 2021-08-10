@@ -37,7 +37,12 @@
             >
               編輯
             </button>
-            <button class="btn btn-outline-danger btn-sm">刪除</button>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              @click="openDeleteModal(item)"
+            >
+              刪除
+            </button>
           </div>
         </td>
       </tr>
@@ -48,10 +53,12 @@
     :product="tempProduct"
     @update-product="updateProduct"
   ></ProductModal>
+  <DeleteModal ref="deleteModal" :item="tempProduct"></DeleteModal>
 </template>
 
 <script>
 import ProductModal from '../components/ProductModal.vue';
+import DeleteModal from '../components/DeleteModal.vue';
 
 export default {
   data () {
@@ -65,6 +72,7 @@ export default {
 
   components: {
     ProductModal,
+    DeleteModal,
   },
 
   methods: {
@@ -101,6 +109,12 @@ export default {
       this.$http[httpMethod](api, { data: this.tempProduct }).then(response => {
         this.getProducts();
       });
+    },
+
+    openDeleteModal (item) {
+      this.tempProduct = item;
+      const deleteProductModal = this.$refs.deleteModal;
+      deleteProductModal.showModal();
     },
   },
 
