@@ -5,7 +5,7 @@
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
-    ref="editModal"
+    ref="modal"
   >
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content border-0">
@@ -208,7 +208,7 @@
 </template>
 
 <script>
-import Modal from 'bootstrap/js/dist/modal';
+import modalMixin from '@/mixins/modalMixin';
 
 export default {
   data () {
@@ -246,16 +246,7 @@ export default {
         this.tempProduct.imageUrl = response.data.imageUrl;
       });
     },
-    showModal () {
-      this.modal.show();
-    },
-
-    hideModal () {
-      this.modal.hide();
-    },
   },
-  mounted () {
-    this.modal = new Modal(this.$refs.editModal);
-  },
+  mixins: [modalMixin],
 };
 </script>
