@@ -1,4 +1,5 @@
 <template>
+  <Loading :active="isLoading"></Loading>
   <div class="text-end">
     <button class="btn btn-primary" type="button" @click="openModal(true)">
       新增一個產品
@@ -71,6 +72,7 @@ export default {
       pagination: {},
       tempProduct: {},
       isNew: false,
+      isLoading: false,
     };
   },
 
@@ -82,7 +84,11 @@ export default {
   methods: {
     getProducts () {
       const api = this.$api + '/admin/products';
+      this.isLoading = true;
+
       this.$http.get(api).then(response => {
+        this.isLoading = false;
+
         if (!response.data.success) {
           console.warn('Failed to get products:', response.data.message);
 
