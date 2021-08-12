@@ -9,7 +9,7 @@
   >
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content border-0">
-        <form @submit="hideModal">
+        <form @submit="$emit('update-product', tempProduct)">
           <div class="modal-header bg-dark text-white">
             <h5 class="modal-title" id="exampleModalLabel">
               <span>新增產品</span>
@@ -196,7 +196,6 @@
             <button
               type="submit"
               class="btn btn-primary"
-              @click="$emit('update-product', tempProduct)"
             >
               確認
             </button>

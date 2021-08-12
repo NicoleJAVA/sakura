@@ -121,6 +121,7 @@ export default {
       this.$http[httpMethod](api, { data: this.tempProduct }).then(response => {
         this.getProducts();
         this.pushMessage(response, '更新');
+        this.$refs.productModal.hideModal();
       });
     },
 
