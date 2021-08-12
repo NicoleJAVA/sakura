@@ -81,6 +81,8 @@ export default {
     DeleteModal,
   },
 
+  inject: ['pushMessage'],
+
   methods: {
     getProducts () {
       const api = this.$api + '/admin/products';
@@ -118,6 +120,7 @@ export default {
 
       this.$http[httpMethod](api, { data: this.tempProduct }).then(response => {
         this.getProducts();
+        this.pushMessage(response, '更新');
       });
     },
 
