@@ -6,8 +6,12 @@ import router from './router';
 import Loading from 'vue3-loading-overlay';
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 import pushMessage from './methods/pushMessage';
+import { currency } from './methods/filters';
 
 const app = createApp(App);
+app.config.globalProperties.$filters = {
+  currency,
+};
 app.config.globalProperties.$api =
   process.env.VUE_APP_API + '/api/' + process.env.VUE_APP_PATH;
 app.use(router);
