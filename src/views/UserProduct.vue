@@ -50,6 +50,7 @@ export default {
       isLoading: false,
     };
   },
+  inject: ['pushMessage'],
   methods: {
     getProduct () {
       const api = this.$api + `/product/${this.id}`;
@@ -64,6 +65,19 @@ export default {
         }
 
         this.product = response.data.product;
+      });
+    },
+    addToCart (id, qty = 1) {
+      const api = this.$api + '/cart';
+      const cart = {
+        product_id: id,
+        qty,
+      };
+      this.isLoading = true;
+      this.$http.post(api, { data: cart }).then(response => {
+        this.isLoading = false;
+        this.pushMessage(response, '加入購物車');
+        this.$router.push('/user/cart');
       });
     },
   },
