@@ -43,7 +43,11 @@
                   >
                     查看更多
                   </button>
-                  <button type="button" class="btn btn-outline-danger">
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    @click="addToCart(item.id)"
+                  >
                     加到購物車
                   </button>
                 </div>
@@ -65,7 +69,23 @@ export default {
       isLoading: false,
     };
   },
+  inject: ['pushMessage'],
   methods: {
+    addToCart (id) {
+      const api = this.$api + '/cart';
+      const cart = {
+        product_id: id,
+        qty: 1,
+      };
+      this.$http
+        .post(api, { data: cart })
+        .then(response => {
+          this.pushMessage(response, '加入購物車');
+        })
+        .catch(err => {
+          console.error('Add to cart error: ', err);
+        });
+    },
     getProducts () {
       const api = this.$api + '/products/all';
       this.isLoading = true;
