@@ -44,7 +44,7 @@
             <div class="btn-group">
               <button
                 class="btn btn-outline-primary btn-sm"
-                @click="openModal(false, item)"
+                @click="openOrderModal(false, item)"
               >
                 檢視
               </button>
@@ -91,6 +91,12 @@ export default {
         this.orders = response.data.orders;
         this.pagination = response.data.pagination;
       });
+    },
+    openOrderModal (isNew, item) {
+      this.tempOrder = { ...item };
+      this.isNew = false;
+      const orderModal = this.$refs.orderModal;
+      orderModal.showModal();
     },
   },
   created () {
