@@ -45,10 +45,23 @@
                   </button>
                   <button
                     type="button"
-                    class="btn btn-outline-danger"
+                    class="btn btn-outline-danger position-relative"
+                    :disabled="status.loadingItem === item.id"
                     @click="addToCart(item.id)"
                   >
-                    加到購物車
+                    <div :class="{ invisible: status.loadingItem === item.id }">
+                      加到購物車
+                    </div>
+                    <div
+                      class="position-absolute w-100"
+                      :class="{ invisible: status.loadingItem !== item.id }"
+                      style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                    >
+                      <div
+                        class="spinner-border spinner-border-sm text-danger"
+                        role="status"
+                      ></div>
+                    </div>
                   </button>
                 </div>
               </td>
@@ -67,11 +80,15 @@ export default {
       products: [],
       product: {},
       isLoading: false,
+      status: {
+        loadingItem: '',
+      },
     };
   },
   inject: ['pushMessage'],
   methods: {
     addToCart (id) {
+      this.status.loadingItem = id;
       const api = this.$api + '/cart';
       const cart = {
         product_id: id,
@@ -81,6 +98,10 @@ export default {
         .post(api, { data: cart })
         .then(response => {
           this.pushMessage(response, '加入購物車');
+
+          if (!response.data.success) return;
+
+          this.status.loadingItem = '';
         })
         .catch(err => {
           console.error('Add to cart error: ', err);
