@@ -74,6 +74,9 @@ export default {
         this.products = response.data.products;
       });
     },
+    getProduct (id) {
+      this.$router.push(`/user/product/${id}`);
+    },
   },
   created () {
     this.getProducts();
