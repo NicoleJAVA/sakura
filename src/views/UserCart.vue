@@ -185,9 +185,6 @@ export default {
         .post(api, { data: cart })
         .then(response => {
           this.pushMessage(response, '加入購物車');
-
-          if (!response.data.success) return;
-
           this.status.loadingItem = '';
         })
         .catch(err => {
