@@ -216,6 +216,7 @@ export default {
       tempProduct: {},
     };
   },
+  inject: ['isApiSuccess'],
   props: {
     product: {
       type: Object,
@@ -236,11 +237,7 @@ export default {
       formData.append('file-to-upload', inputFile);
       const api = this.$api + '/admin/upload';
       this.$http.post(api, formData).then(response => {
-        if (!response.data.success) {
-          console.warn('Failed to upload image: ', response.data.message);
-
-          return;
-        }
+        if (!this.isApiSuccess(response, api)) return;
 
         this.tempProduct.imageUrl = response.data.imageUrl;
       });

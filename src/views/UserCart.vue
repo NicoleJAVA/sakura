@@ -172,7 +172,7 @@ export default {
       coupon_code: '',
     };
   },
-  inject: ['pushMessage'],
+  inject: ['pushMessage', 'isApiSuccess'],
   methods: {
     addToCart (id) {
       this.status.loadingItem = id;
@@ -209,11 +209,8 @@ export default {
         .get(api)
         .then(response => {
           this.isLoading = false;
-          if (!response.data.success) {
-            console.error('Failed to get cart data: ', response.data.message);
 
-            return;
-          }
+          if (!this.isApiSuccess(response, api)) return;
 
           this.cart = response.data.data;
         })

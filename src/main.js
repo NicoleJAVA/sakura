@@ -7,6 +7,7 @@ import Loading from 'vue3-loading-overlay';
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 import pushMessage from './methods/pushMessage';
 import { currency } from './methods/filters';
+import isApiSuccess from './methods/isApiSuccess';
 
 const app = createApp(App);
 app.config.globalProperties.$filters = {
@@ -18,4 +19,5 @@ app.use(router);
 app.use(VueAxios, axios);
 app.component('Loading', Loading);
 app.provide('pushMessage', pushMessage);
+app.provide('isApiSuccess', isApiSuccess);
 app.mount('#app');

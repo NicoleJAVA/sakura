@@ -84,7 +84,7 @@ export default {
     Pagination,
   },
 
-  inject: ['pushMessage'],
+  inject: ['pushMessage', 'isApiSuccess'],
 
   methods: {
     getProducts (page = 1) {
@@ -94,11 +94,7 @@ export default {
       this.$http.get(api).then(response => {
         this.isLoading = false;
 
-        if (!response.data.success) {
-          console.warn('Failed to get products:', response.data.message);
-
-          return;
-        }
+        if (!this.isApiSuccess(response, api)) return;
 
         this.products = response.data.products;
         this.pagination = response.data.pagination;

@@ -47,7 +47,7 @@ export default {
       },
     };
   },
-
+  inject: ['isApiSuccess'],
   methods: {
     signIn () {
       const api = `${process.env.VUE_APP_API}/admin/signin`;
@@ -55,11 +55,7 @@ export default {
       this.$http
         .post(api, this.user)
         .then(response => {
-          if (!response.data.success) {
-            console.warn(response.data.error.message);
-
-            return;
-          }
+          if (!this.isApiSuccess(response, api)) return;
 
           console.log('Successfully logged in');
           const { token, expired } = response.data;

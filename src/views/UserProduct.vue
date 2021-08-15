@@ -50,19 +50,15 @@ export default {
       isLoading: false,
     };
   },
-  inject: ['pushMessage'],
+  inject: ['pushMessage', 'isApiSuccess'],
   methods: {
     getProduct () {
       const api = this.$api + `/product/${this.id}`;
       this.isLoading = true;
       this.$http.get(api).then(response => {
         this.isLoading = false;
-        console.log('TEST', response);
-        if (!response.data.success) {
-          console.warn('Failed to load product:', response.data.message);
 
-          return;
-        }
+        if (!this.isApiSuccess(response, api)) return;
 
         this.product = response.data.product;
       });

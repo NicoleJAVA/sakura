@@ -23,6 +23,8 @@ export default {
     };
   },
 
+  inject: ['isApiSuccess'],
+
   created () {
     const token = document.cookie.replace(
       /(?:(?:^|.*;\s*)sellerToken\s*=\s*([^;]*).*$)|^.*$/,
@@ -33,9 +35,8 @@ export default {
     const api = `${process.env.VUE_APP_API}/api/user/check`;
 
     this.$http.post(api, this.user).then(response => {
-      if (!response.data.success) {
+      if (!this.isApiSuccess(response, api)) {
         this.$router.push('/login');
-        console.warn(response.data.message);
       }
     });
   },
