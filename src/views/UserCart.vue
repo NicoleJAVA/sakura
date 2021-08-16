@@ -230,6 +230,17 @@ export default {
         this.isLoading = false;
       });
     },
+    removeCartItem (id) {
+      const api = this.$api + '/cart/' + id;
+      this.status.loadingItem = id;
+      this.isLoading = true;
+      this.$http.delete(api).then(response => {
+        this.status.loadingItem = '';
+        this.isLoading = false;
+        this.getCart();
+        this.pushMessage(response, '刪除購物車品項');
+      });
+    },
     getProducts () {
       const api = this.$api + '/products/all';
       this.isLoading = true;
