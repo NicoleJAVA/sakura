@@ -6,13 +6,14 @@ import router from './router';
 import Loading from 'vue3-loading-overlay';
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 import pushMessage from './methods/pushMessage';
-import { currency } from './methods/filters';
+import { currency, date } from './methods/filters';
 import isApiSuccess from './methods/isApiSuccess';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const app = createApp(App);
 app.config.globalProperties.$filters = {
   currency,
+  date,
 };
 app.config.globalProperties.$api =
   process.env.VUE_APP_API + '/api/' + process.env.VUE_APP_PATH;
