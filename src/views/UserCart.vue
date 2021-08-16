@@ -186,6 +186,7 @@ export default {
         .then(response => {
           this.pushMessage(response, '加入購物車');
           this.status.loadingItem = '';
+          this.getCart();
         })
         .catch(err => {
           console.error('Add to cart error: ', err);
