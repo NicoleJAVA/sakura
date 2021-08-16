@@ -218,6 +218,18 @@ export default {
           console.error('Add to cart error: ', err);
         });
     },
+    addCouponCode () {
+      const api = this.$api + '/coupon';
+      const coupon = {
+        code: this.coupon_code,
+      };
+      this.isLoading = true;
+      this.$http.post(api, { data: coupon }).then(response => {
+        this.getCart();
+        this.pushMessage(response, '套用優惠券');
+        this.isLoading = false;
+      });
+    },
     getProducts () {
       const api = this.$api + '/products/all';
       this.isLoading = true;
