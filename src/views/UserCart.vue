@@ -104,6 +104,9 @@
                       <input
                         type="number"
                         class="form-control"
+                        :disabled="status.loadingItem === item.id"
+                        @change="updateCart(item)"
+                        min="1"
                         v-model.number="item.qty"
                       />
                       <div class="input-group-text">
@@ -174,6 +177,29 @@ export default {
   },
   inject: ['pushMessage', 'isApiSuccess'],
   methods: {
+    updateCart (item) {
+      const api = this.$api + `/cart/${item.id}`;
+      this.isLoading = true;
+      this.status.loadingItem = item.id;
+      const cart = {
+        product_id: item.product_id,
+        qty: item.qty,
+      };
+
+      this.$http
+        .put(api, { data: cart })
+        .then(response => {
+          this.isLoading = false;
+          this.status.loadingItem = '';
+
+          if (!this.isApiSuccess(response)) return;
+
+          this.getCart();
+        })
+        .catch(error => {
+          console.error('Failed to update cart. ', error);
+        });
+    },
     addToCart (id) {
       this.status.loadingItem = id;
       const api = this.$api + '/cart';
