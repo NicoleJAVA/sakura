@@ -114,8 +114,12 @@ export default {
     updateProduct (item) {
       this.tempProduct = item;
       let api = this.$api + '/admin/product';
-      if (!this.isNew) api += `/${item.id}`;
-      const httpMethod = this.isNew ? 'post' : 'put';
+      let httpMethod = 'post';
+
+      if (!this.isNew) {
+        api += '/' + item.id;
+        httpMethod = 'put';
+      }
 
       this.$http[httpMethod](api, { data: this.tempProduct }).then(response => {
         this.getProducts();
