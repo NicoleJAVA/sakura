@@ -265,6 +265,19 @@ export default {
   },
   inject: ['pushMessage', 'isApiSuccess'],
   methods: {
+    createOrder () {
+      const api = this.$api + '/order';
+      const order = this.form;
+      this.isLoading = true;
+      this.$http.post(api, { data: order }).then(response => {
+        this.isLoading = false;
+        this.pushMessage(response, '建立訂單');
+
+        if (!this.isApiSuccess(response, api)) return;
+
+        this.$router.push('/user/checkout/' + response.data.orderId);
+      });
+    },
     updateCart (item) {
       const api = this.$api + `/cart/${item.id}`;
       this.isLoading = true;
