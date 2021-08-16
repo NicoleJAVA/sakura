@@ -280,7 +280,7 @@ export default {
           this.isLoading = false;
           this.status.loadingItem = '';
 
-          if (!this.isApiSuccess(response)) return;
+          if (!this.isApiSuccess(response, api)) return;
 
           this.getCart();
         })
