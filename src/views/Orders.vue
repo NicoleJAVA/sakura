@@ -92,6 +92,23 @@ export default {
   },
   inject: ['pushMessage'],
   methods: {
+    updatePaid (item) {
+      const api = this.$api + '/admin/order/' + item.id;
+      const paid = {
+        is_paid: item.is_paid,
+      };
+      this.isLoading = true;
+      this.$http
+        .put(api, { data: paid })
+        .then(response => {
+          this.isLoading = false;
+          this.getOrders();
+          this.pushMessage(response, '更新付款狀態');
+        })
+        .catch(error => {
+          console.error('Falied to update payment status', error);
+        });
+    },
     getOrders (currentPage = 1) {
       this.currentPage = currentPage;
       const api = this.$api + `/admin/orders?page=${currentPage}`;
