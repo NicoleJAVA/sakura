@@ -109,6 +109,21 @@ export default {
           console.error('Falied to update payment status', error);
         });
     },
+    delOrder () {
+      const api = this.$api + '/admin/order/' + this.tempOrder.id;
+      this.isLoading = true;
+      this.$http
+        .delete(api)
+        .then(response => {
+          this.isLoading = false;
+          this.getOrders();
+          this.pushMessage(response, '刪除訂單');
+          this.$refs.delModal.hideModal();
+        })
+        .catch(error => {
+          console.error('Failed to delete order. ', error);
+        });
+    },
     getOrders (currentPage = 1) {
       this.currentPage = currentPage;
       const api = this.$api + `/admin/orders?page=${currentPage}`;
