@@ -70,6 +70,10 @@
 </template>
 
 <script>
+import DelModal from '../components/DeleteModal';
+import Pagination from '../components/Pagination';
+import OrderModal from '../components/OrderModal';
+
 export default {
   data () {
     return {
@@ -81,6 +85,12 @@ export default {
       currentPage: 1,
     };
   },
+  components: {
+    Pagination,
+    DelModal,
+    OrderModal,
+  },
+  inject: ['pushMessage'],
   methods: {
     getOrders (currentPage = 1) {
       this.currentPage = currentPage;
@@ -97,6 +107,11 @@ export default {
       this.isNew = false;
       const orderModal = this.$refs.orderModal;
       orderModal.showModal();
+    },
+    openDelOrderModal (item) {
+      this.tempOrder = { ...item };
+      const delModal = this.$refs.delModal;
+      delModal.showModal();
     },
   },
   created () {
