@@ -27,18 +27,18 @@
                 ><img
                   class="opacity-anim ratio"
                   alt="image of the product"
-                  :src="item.imageUrl"
+                  :src="getFakeImage()"
               /></a>
             </div>
             <div>
               <h3
-                class="lh-md pt-2 fw-600 break-line-2 fs-sm text-secondary
+                class="lh-md pt-2 fw-600 break-line-2 fs-sm text-secondary text-center
                card-product-name d-flex align-items-center justify-content-center"
               >
                 {{ item.title }}
               </h3>
               <div
-                class="mt-3 mb-4 d-flex align-items-center justify-content-center fw-500"
+                class="mt-2 mb-3 d-flex align-items-center justify-content-center fw-500"
               >
                 <span class="me-2 fs-sm" :class="getPriceStyle(item)"
                   ><span class="text-primary fw-300">NTD</span> $
@@ -96,7 +96,7 @@ export default {
       },
     };
   },
-  inject: ['pushMessage', 'isApiSuccess', 'categoryName'],
+  inject: ['pushMessage', 'isApiSuccess', 'categoryName', 'getFakeImage'],
   methods: {
     createOrder () {
       const api = this.$api + '/order';

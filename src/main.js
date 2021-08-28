@@ -14,6 +14,7 @@ import AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 import categoryName from './assets/strings/category-zh_tw.json';
+import { getFakeImage } from './methods/getFakeData.js';
 
 const app = createApp(App);
 app.config.globalProperties.$filters = {
@@ -42,4 +43,5 @@ app.component('ErrorMessage', ErrorMessage);
 app.provide('pushMessage', pushMessage);
 app.provide('isApiSuccess', isApiSuccess);
 app.provide('categoryName', categoryName);
+app.provide('getFakeImage', getFakeImage);
 app.mount('#app');
