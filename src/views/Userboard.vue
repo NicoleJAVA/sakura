@@ -1,9 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <router-link class="navbar-brand" to="/user/cart">會員中心</router-link>
-    </div>
-  </nav>
+  <Navbar></Navbar>
   <div class="container-fluid mt-3 position-relative">
     <ToastMessages></ToastMessages>
     <router-view />
@@ -13,10 +9,12 @@
 <script>
 import ToastMessages from '@/components/ToastMessages.vue';
 import emitter from '@/methods/emitter';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   components: {
     ToastMessages,
+    Navbar,
   },
   provide () {
     return {
