@@ -13,6 +13,7 @@ import { Form, Field, ErrorMessage, defineRule, configure } from 'vee-validate';
 import AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+import categoryName from './assets/strings/category-zh_tw.json';
 
 const app = createApp(App);
 app.config.globalProperties.$filters = {
@@ -40,4 +41,5 @@ app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
 app.provide('pushMessage', pushMessage);
 app.provide('isApiSuccess', isApiSuccess);
+app.provide('categoryName', categoryName);
 app.mount('#app');
