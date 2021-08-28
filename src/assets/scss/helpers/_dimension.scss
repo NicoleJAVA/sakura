@@ -1,0 +1,26 @@
+
+$main-navbar-height: 90px;
+$secondary-column-width: 340px;
+
+$product-img-width: 240px;
+
+// icon
+$icon-width-height: 28px;
+$icon-border-radius: 3px;
+$icon-margin-left: 10px;
+
+.container-custom-width {
+  max-width: 1288 px;
+}
+
+.col-xl-aside {
+  @include media-breakpoint-up(xl) {
+    flex: 0 0 $secondary-column-width!important;
+  }
+}
+
+.col-xl-main {
+  @include media-breakpoint-up(xl) {
+    flex: 1 0 0;
+  }
+}

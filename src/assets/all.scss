@@ -1,3 +1,4 @@
+@import "./scss/base/reset";
 @import "~bootstrap/scss/functions";
 @import "./scss/helpers/variables";
 @import "~bootstrap/scss/variables";
@@ -5,3 +6,10 @@
 @import "~bootstrap/scss/root";
 
 @import "~bootstrap/scss/bootstrap";
+@import "./scss/helpers/dimension";
+@import "./scss/helpers/text";
+@import "./scss/helpers/image";
+
+@import "./scss/component/navbar";
+@import "./scss/component/card";
+@import "./scss/component/icon";

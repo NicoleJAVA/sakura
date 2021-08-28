@@ -1,0 +1,21 @@
+.header-nav {
+  height: $main-navbar-height;
+  background-color: white;
+  opacity: 90%;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  animation: smoothScroll .8s forwards;
+}
+
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
