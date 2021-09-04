@@ -2,75 +2,8 @@
   <Loading :active="isLoading"></Loading>
   <div class="container">
     <div class="row mt-4">
-      <div class="col-md-7">
-        <table class="table align-middle">
-          <thead>
-            <tr>
-              <th>圖片</th>
-              <th>商品名稱</th>
-              <th>價格</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in products" :key="item.id">
-              <td style="width: 200px">
-                <div
-                  style="height: 100px; background-size: cover; background-position: center"
-                  :style="{ backgroundImage: `url(${item.imageUrl})` }"
-                ></div>
-              </td>
-              <td>
-                <a href="#" class="text-dark">{{ item.title }}</a>
-              </td>
-              <td>
-                <div class="h5" v-if="!item.price">
-                  {{ item.origin_price }} 元
-                </div>
-                <del class="h6" v-if="item.price"
-                  >原價 {{ item.origin_price }} 元</del
-                >
-                <div class="h5" v-if="item.price">
-                  現在只要 {{ item.price }} 元
-                </div>
-              </td>
-              <td>
-                <div class="btn-group btn-group-sm">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary"
-                    @click="getProduct(item.id)"
-                  >
-                    查看更多
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-outline-danger position-relative"
-                    :disabled="status.loadingItem === item.id"
-                    @click="addToCart(item.id)"
-                  >
-                    <div :class="{ invisible: status.loadingItem === item.id }">
-                      加到購物車
-                    </div>
-                    <div
-                      class="position-absolute w-100"
-                      :class="{ invisible: status.loadingItem !== item.id }"
-                      style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
-                    >
-                      <div
-                        class="spinner-border spinner-border-sm text-danger"
-                        role="status"
-                      ></div>
-                    </div>
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
       <div class="col-md-5">
-        <div class="sticky-top">
+        <div class="">
           <table class="table align-middle">
             <thead>
               <tr>
@@ -162,6 +95,76 @@
     <div class="">
       <div class="">
         <div class="btn btn-primary" @click="goToForm">前往結帳</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>圖片</th>
+              <th>商品名稱</th>
+              <th>價格</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in products" :key="item.id">
+              <td style="width: 200px">
+                <div
+                  style="height: 100px; background-size: cover; background-position: center"
+                  :style="{ backgroundImage: `url(${item.imageUrl})` }"
+                ></div>
+              </td>
+              <td>
+                <a href="#" class="text-dark">{{ item.title }}</a>
+              </td>
+              <td>
+                <div class="h5" v-if="!item.price">
+                  {{ item.origin_price }} 元
+                </div>
+                <del class="h6" v-if="item.price"
+                  >原價 {{ item.origin_price }} 元</del
+                >
+                <div class="h5" v-if="item.price">
+                  現在只要 {{ item.price }} 元
+                </div>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    @click="getProduct(item.id)"
+                  >
+                    查看更多
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger position-relative"
+                    :disabled="status.loadingItem === item.id"
+                    @click="addToCart(item.id)"
+                  >
+                    <div :class="{ invisible: status.loadingItem === item.id }">
+                      加到購物車
+                    </div>
+                    <div
+                      class="position-absolute w-100"
+                      :class="{ invisible: status.loadingItem !== item.id }"
+                      style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                    >
+                      <div
+                        class="spinner-border spinner-border-sm text-danger"
+                        role="status"
+                      ></div>
+                    </div>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
