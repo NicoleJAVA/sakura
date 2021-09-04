@@ -14,6 +14,9 @@ export function getFakeImage () {
     // 櫻花旅遊 櫻花寺廟
     'https://data.whicdn.com/images/355543396/original.jpg',
 
+    // 櫻花鐵道 宮城縣
+    'https://im.marieclaire.com.tw/s450c253h100b0/assets/mc/202005/5EAFE5E1D88ED1588585953.jpeg',
+
     // 星巴克日本本櫻花星冰樂行銷照
     'https://data.whicdn.com/images/276115868/original.jpg',
 
@@ -44,6 +47,9 @@ export function getFakeImage () {
     // 星巴克多款杯子行銷照
     'https://dw6vrgax4fzym.cloudfront.net/userfiles/sm/sm640480_images_A1/10530/2017032100960797.jpg',
 
+    // 星巴克三個粉色櫻花杯子
+    'https://shopee.sg/blog/wp-content/uploads/2021/02/starbucks-sakura.jpg',
+
     // 星巴克手帳
     'https://ct.yimg.com/xd/api/res/1.2/1ScM.TpS8SKOj4ZeB148kA--/YXBwaWQ9eXR3YXVjdGlvbnNlcnZpY2U7aD00MDA7cT04NTtyb3RhdGU9YXV0bzt3PTQwMA--/https://s.yimg.com/ob/image/47da3ce8-f63e-468a-a183-f4892d0347b5.jpg',
 
@@ -53,15 +59,66 @@ export function getFakeImage () {
     // 星巴克櫻花星冰樂 櫻花鐵罐
     'https://inews.gtimg.com/newsapp_bt/0/10086869692/1000',
 
+    // 日本星巴克櫻花奶霜
+    'https://isuta.jp/wp-content/uploads/2019/02/media_e15bc9f8755f4daed4968f6e3d969389c0b6c975.jpg',
+
+    // botanisi 櫻花系列
+    'https://lh3.googleusercontent.com/proxy/oiAyQlzNok_-8kNaM7_AbbupT5e432OGLB21epiocWRYOuh_yKbhoj14I-YinKbV_MCRA4uYICydq4slbYHAyN2bhRtLxsvGAfK2cNPJMJKp-tifdZrdztr4wdNca1oGuXJqPlg0dbCc-Ep7KDn3PligoHluGXqoP_dlSceg4nJZB9UianQPyLRuupY_BkntAhC2zuVr',
+
+    // inisfree 櫻花乳液
+    'https://cdn.shopify.com/s/files/1/0527/2253/2537/products/InnisfreeJejuCherryBlossomlotion17_800x1026_crop_center@2x.jpg?v=1610501551',
+
+    // inisfree jeju 櫻花乳液
+    'https://vn-live-01.slatic.net/p/3d28edc6c2d6408826f1587bf5e3fb4b.jpg',
+
+    // inisfree 櫻花保養系列
+    'https://hadibeauty.com/wp-content/uploads/2020/12/231170907-Jelly-Cream-Set-0521-innisfree_136-1-1080x1080-1.jpg',
+
+    // fancl 櫻花卸妝油
+    'https://cf.shopee.sg/file/dc829ac9fafd6d94e67b07fe5029cadf',
+
     // 大創櫻花抱枕
     'https://ds1hi2ngsqn97.cloudfront.net/wpcontent/uploads/2021/02/147131081_443621466849159_5475165961924463764_n.jpg',
 
     // 大創櫻花文具
     'https://cdn2.ettoday.net/images/3135/3135557.jpg',
-  ];
-  const index = getRandomInt(fakeImages.length);
 
-  console.log('測試: 假圖', index + ' ' + fakeImages[index]);
+    // 櫻花鯛魚燒
+    'https://miro.medium.com/max/1838/1*u6STB9JDwrE6EwaQ28AOpA.jpeg',
+
+    // 日本櫻花奶霜
+    'https://wp-shugar.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2020/08/6ea0c493917fefc31c6e9a11db7bc1b8-scaled.jpg',
+  ];
+
+  let randomNum = getRandomInt(new Date());
+  const a = getRandomInt(randomNum);
+  const n = fakeImages.length;
+
+  randomNum = a >= n ? a % n : n % a;
+  randomNum = getRandomInt(randomNum);
+  const b = getRandomInt(randomNum);
+  console.log('測試: a, b, randomNum ', `${a}, ${b}, ${randomNum}`);
+
+  let index = 0;
+
+  if (a === 0) {
+    index = getRandomInt(n);
+  } else if (a >= 3 && a % 3 === 0 && randomNum > 0 && b > 0) {
+    const c = (a % b) * randomNum;
+    console.log('測試: c ', c);
+
+    if (c !== 0) index = c >= n ? c % n : n % c;
+    else index = getRandomInt(n);
+  } else {
+    index = a > n ? a % n : n % a;
+  }
+
+  console.log(
+    '測試: 假圖',
+    `a 是 ${a}, b 是 ${b}, randomNum 是 ${randomNum}, ` +
+      `長度是 ${n}, index 是 ${index}, ${fakeImages[index]}`
+  );
+
   return fakeImages[index];
 }
 
@@ -72,6 +129,18 @@ export function getFakeAdBanners () {
 
     // 日本賞櫻 24 景點交通
     'https://res.klook.com/image/upload/fl_lossy.progressive/q_65/c_fill,w_1360/blogtw/2019/01/japansakura.jpg',
+
+    // fancl 櫻花
+    'http://5b0988e595225.cdn.sohucs.com/images/20200225/aed7da824b124aa1b750bef8e3632b6e.jpeg',
+
+    // fancl 櫻花保養品廣告
+    'https://jw-webmagazine.com/wp-content/uploads/2021/03/2021sakurafufufu_topics.jpg',
+
+    // ettusais 化妝品
+    'https://images.prismic.io/nomakenolife/f7874e2a770bec39cf86f18bbd78f653f57de72f_banner02.jpg?auto=compress,format',
+
+    // 韓國星巴克櫻花
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPvCRC-opuEq0-P0OErJWO1QF0uV15L0rlnZHKDGLZIULB6_qV2dNBXZswnGoB4HEwPV8&usqp=CAU',
   ];
 
   const index = Math.randomInt(fakeBanners.length);
