@@ -1,6 +1,55 @@
 <template>
   <Loading :active="isLoading"></Loading>
-  <div class="container">
+  <div class="container container-custom-width">
+    <div class="row mt-4">
+      <ul class="col-md-7">
+        <li
+          v-for="item in cart.carts"
+          :key="item.id"
+          class="row align-items-center my-3"
+        >
+          <div class="col">
+            <div class="ratio-wrap" style="--w: 276; --h: 230;">
+              <img
+                class="ratio"
+                alt="image of the product"
+                :src="item.product.imageUrl"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="break-line-4">
+              {{ item.product.title }}
+            </div>
+          </div>
+          <div class="col">
+            <div
+              v-if="item.product.price !== item.product.origin_price"
+              class="text-decoration-line-through text-deleted
+              fs-6 fw-300 text-center"
+            >
+              NTD $ {{ $filters.currency(item.product.origin_price) }}
+            </div>
+            <div class="fs-6 fw-300 text-subtitle text-center">
+              <span class="text-primary">NTD</span> $
+              {{ $filters.currency(item.product.price) }}
+            </div>
+          </div>
+          <div class="col d-flex align-items-center">
+            <div class="cart-item-num text-center">{{ item.product.num }}</div>
+            <div class="change-num-frame d-flex">
+              <div class="fs-4 fw-light ps-3 pe-2 text-primary">
+                <i class="bi bi-dash"></i>
+              </div>
+              <div class="fs-4 fw-light ps-2 pe-3 text-primary">
+                <i class="bi bi-plus"></i>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
     <div class="row mt-4">
       <div class="col-md-5">
         <div class="">
@@ -269,6 +318,7 @@ export default {
           if (!this.isApiSuccess(response, api)) return;
 
           this.cart = response.data.data;
+          console.log('測試: cart', this.cart);
         })
         .catch(error => {
           console.error('ERROR! Cannot get cart data: ', error);

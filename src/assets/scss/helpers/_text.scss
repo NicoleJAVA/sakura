@@ -76,3 +76,11 @@
 .break-line-2 {
   @include break-line(2);
 }
+
+.break-line-3 {
+  @include break-line(3);
+}
+
+.break-line-4 {
+  @include break-line(4);
+}

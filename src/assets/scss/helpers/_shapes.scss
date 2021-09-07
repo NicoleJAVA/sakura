@@ -1,0 +1,9 @@
+.change-num-frame {
+  border: 1px solid $light-purple;
+  border-radius: $change-num-border-radius;
+  // height: $change-num-height;
+}
+
+.change-num-frame div:first-child {
+  border-right: 1px solid $light-purple;
+}
