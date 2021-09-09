@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="col d-flex align-items-center">
-            <div class="cart-item-num text-center">{{ item.product.num }}</div>
+            <div class="cart-item-num text-center">{{ item.qty }}</div>
             <div class="change-num-frame d-flex">
               <div class="fs-4 fw-light ps-3 pe-2 text-primary">
                 <i class="bi bi-dash"></i>
