@@ -1,5 +1,5 @@
 # sakura
-using githubDesktop
+
 ## Project setup
 ```
 npm install
