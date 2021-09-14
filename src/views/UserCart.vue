@@ -37,14 +37,23 @@
           </div>
           <div class="col d-flex align-items-center">
             <div class="cart-item-num text-center">{{ item.qty }}</div>
-            <div class="change-num-frame d-flex">
-              <div class="fs-4 fw-light ps-3 pe-2 text-primary">
+
+            <div class="d-flex">
+              <button
+                class="left-rounded fs-4 fw-light btn btn-outline-primary py-0 btn-link"
+                :disabled="item.qty <= 1"
+                @click="updateCart(item, item.qty - 1)"
+              >
                 <i class="bi bi-dash"></i>
-              </div>
-              <div class="fs-4 fw-light ps-2 pe-3 text-primary">
+              </button>
+              <button
+                class="right-rounded fs-4 fw-light btn btn-outline-primary py-0 btn-link"
+                @click="updateCart(item, item.qty + 1)"
+              >
                 <i class="bi bi-plus"></i>
-              </div>
+              </button>
             </div>
+
           </div>
         </li>
       </ul>
@@ -87,7 +96,7 @@
                         type="number"
                         class="form-control"
                         :disabled="status.loadingItem === item.id"
-                        @change="updateCart(item)"
+                        @change="updateCart(item, item.qty)"
                         min="1"
                         v-model.number="item.qty"
                       />
@@ -235,15 +244,14 @@ export default {
   },
   inject: ['pushMessage', 'isApiSuccess'],
   methods: {
-    updateCart (item) {
+    updateCart (item, quantity) {
       const api = this.$api + `/cart/${item.id}`;
       this.isLoading = true;
       this.status.loadingItem = item.id;
       const cart = {
         product_id: item.product_id,
-        qty: item.qty,
+        qty: quantity,
       };
-
       this.$http
         .put(api, { data: cart })
         .then(response => {

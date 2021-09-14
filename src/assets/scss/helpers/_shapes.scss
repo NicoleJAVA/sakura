@@ -1,9 +1,10 @@
-.change-num-frame {
-  border: 1px solid $light-purple;
-  border-radius: $change-num-border-radius;
-  // height: $change-num-height;
+.left-rounded {
+  border-radius: $half-rounded-border-radius 0 0 $half-rounded-border-radius;
+  margin-right: 0;
 }
 
-.change-num-frame div:first-child {
-  border-right: 1px solid $light-purple;
+.right-rounded {
+  border-left: 0px solid;
+  border-radius: 0 $half-rounded-border-radius $half-rounded-border-radius 0;
+  margin-left: 0;
 }
