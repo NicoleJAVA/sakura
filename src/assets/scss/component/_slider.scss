@@ -1,4 +1,5 @@
 .slider-wrapper {
-  width: $slider-width;
+  width: $slider-width * 3;
   height: $slider-height;
+  overflow: hidden;
 }

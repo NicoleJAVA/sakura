@@ -36,6 +36,7 @@
 </template>
 
 <script>
+const WINDOW_SIZE = 3;
 export default {
   name: 'HelloWorld',
   props: {
@@ -66,8 +67,11 @@ export default {
         'indicator-container'
       )[0];
 
-      const firstSlide = this.slides[0].cloneNode(true);
-      this.slideContainer.appendChild(firstSlide);
+      for (let i = 0; i < WINDOW_SIZE; i++) {
+        const clonedSlide = this.slides[i].cloneNode(true);
+        this.slideContainer.appendChild(clonedSlide);
+      }
+
       this.indicators = this.indicatorContainer.children;
 
       this.slideWidth = this.slides[0].offsetWidth;
@@ -146,7 +150,7 @@ export default {
 
       this.curIndex = this.curIndex + 1;
 
-      if (this.curIndex > li.length - 1) {
+      if (this.curIndex > li.length - WINDOW_SIZE) {
         this.slideContainer.style.left = 0 + 'px';
         this.curIndex = 1;
       }
@@ -180,15 +184,15 @@ export default {
 #slider,
 .slide-container li ul,
 .slide-container li a {
-  width: 600px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
 }
 
 #slider {
   position: absolute;
   /*padding: 3px;*/
   margin: 10px 0 0 10px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
