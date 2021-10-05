@@ -3,20 +3,20 @@
     <Navbar></Navbar>
     <router-view />
     <div class="slider-wrapper d-flex position-relative">
-      <HelloWorld/>
+      <Slider/>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import Slider from '@/components/Slider.vue';
 import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    Slider,
     Navbar,
   },
 };

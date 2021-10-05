@@ -38,7 +38,7 @@
 <script>
 const WINDOW_SIZE = 3;
 export default {
-  name: 'HelloWorld',
+  name: 'Slider',
   props: {
     msg: String,
   },
