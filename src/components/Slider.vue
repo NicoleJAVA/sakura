@@ -17,7 +17,7 @@
         <a href="#"><img src="../assets/img/slider/slider_5.png"/></a>
       </li>
     </ul>
-    <div class="arrow-container">
+    <div v-show="!isSyncOtherAnim()" class="arrow-container">
       <span class="prev-arrow">
         <i class="bi bi-arrow-left-circle"></i>
       </span>
@@ -25,7 +25,7 @@
         <i class="bi bi-arrow-right-circle"></i>
       </span>
     </div>
-    <div class="indicator-container">
+    <div v-show="!isSyncOtherAnim()" class="indicator-container">
       <span class="indicator active"></span>
       <span class="indicator"></span>
       <span class="indicator"></span>
@@ -54,6 +54,7 @@ export default {
       indicatorContainer: null,
       slideWidth: 0,
       curIndex: 0,
+      syncOtherAnim: true,
     };
   },
   methods: {
@@ -77,7 +78,10 @@ export default {
       this.slideWidth = this.slides[0].offsetWidth;
     },
     initEvents () {
+      if (this.syncOtherAnim) return;
+
       const that = this;
+
       this.slider.addEventListener('mouseover', function () {
         clearTimeout(that.autoplayId);
         that.autoplay = false;
@@ -163,11 +167,14 @@ export default {
         this.onNextArrowClicked();
       }, this.autoplayDelay);
     },
+    isSyncOtherAnim () {
+      return this.syncOtherAnim;
+    },
   },
   mounted () {
     this.initElements();
     this.initEvents();
-    if (this.autoplay) {
+    if (this.autoplay && !this.syncOtherAnim) {
       this.startAnimation();
     }
   },
