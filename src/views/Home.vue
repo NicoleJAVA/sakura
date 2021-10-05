@@ -1,9 +1,12 @@
 <template>
-  <div class="d-flex flex-column align-items-center" style="height: max-content;">
+  <div
+    class="d-flex flex-column align-items-center"
+    style="height: max-content;"
+  >
     <Navbar></Navbar>
     <router-view />
     <div class="slider-wrapper d-flex position-relative">
-      <Slider/>
+      <Slider ref="slider" />
     </div>
   </div>
 </template>
@@ -18,6 +21,22 @@ export default {
   components: {
     Slider,
     Navbar,
+  },
+  data () {
+    return {
+      animDuration: 1800,
+    };
+  },
+  methods: {
+    playAnim () {
+      setTimeout(() => {
+        this.$refs.slider.onNextArrowClicked();
+        this.playAnim();
+      }, this.animDuration);
+    },
+  },
+  mounted () {
+    this.playAnim();
   },
 };
 </script>

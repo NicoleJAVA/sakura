@@ -128,7 +128,7 @@ export default {
           this.intervalId = -1;
           this.slideContainer.style.left = destinationX + 'px';
 
-          if (this.autoplay) {
+          if (this.autoplay && !this.syncOtherAnim) {
             this.startAnimation(this.slideContainer);
           }
 
