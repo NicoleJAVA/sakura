@@ -8,6 +8,7 @@
       <div class="slider-wrapper d-flex position-relative">
         <Slider ref="slider" />
       </div>
+      <FadeAnim></FadeAnim>
     </div>
   </div>
 </template>
@@ -16,12 +17,14 @@
 // @ is an alias to /src
 import Slider from '@/components/Slider.vue';
 import Navbar from '../components/Navbar.vue';
+import FadeAnim from '../components/FadeAnim.vue';
 
 export default {
   name: 'Home',
   components: {
     Slider,
     Navbar,
+    FadeAnim,
   },
   data () {
     return {
