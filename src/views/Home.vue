@@ -1,12 +1,13 @@
 <template>
-  <div
-    class="d-flex flex-column align-items-center"
-    style="height: max-content;"
-  >
-    <Navbar></Navbar>
-    <router-view />
-    <div class="slider-wrapper d-flex position-relative">
-      <Slider ref="slider" />
+  <div class="d-flex justify-content-center primary-background">
+    <div
+      class="d-flex flex-column align-items-center"
+    >
+      <Navbar></Navbar>
+      <router-view />
+      <div class="slider-wrapper d-flex position-relative">
+        <Slider ref="slider" />
+      </div>
     </div>
   </div>
 </template>
