@@ -30,6 +30,8 @@
 }
 
 .primary-background{
-  background-size: contain;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url('~@/assets/img/sakura_home_bg.png');
 }
