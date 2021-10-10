@@ -19,7 +19,7 @@
 <style scoped lang="scss">
 
 $sakura-cafe-width: 1000px;
-$fade-anim-top-offset: 200px;
+$fade-anim-top-offset: 80px;
 $fade-anim-right-offset: 30px;
 $fade-anim-wrap-width: 1000px;
 

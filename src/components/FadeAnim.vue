@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="d-flex flex-column align-items-center">
+    <img id="street-lamp" src="../assets/img/home/street_lamp.png" />
+
     <div
       id="menu-layers-container"
       class="d-flex justify-content-center align-items-center"
@@ -51,11 +53,15 @@
 
       <div id="menu-panel"></div>
     </div>
+
+    <div id="street-lamp-bottom"></div>
   </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$street-lamp-width: 110px;
+$street-lamp-height: 200px;
 $menu-width: 140px;
 $menu-height: 280px;
 $anim-item-width: 100px;
@@ -63,6 +69,19 @@ $anim-item-height: 100px;
 $fade-anim-duration: 0.5s;
 $fade-in-start-position: 10px;
 $fade-out-start-position: -10px;
+
+#street-lamp {
+  width: $street-lamp-width;
+  height: auto;
+}
+
+#street-lamp-bottom {
+  width: $street-lamp-width;
+  height: $street-lamp-height;
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-image: url('../assets/img/home/street_lamp_bottom.png');
+}
 
 #menu-layers-container {
   position: relative;
