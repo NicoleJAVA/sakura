@@ -1,29 +1,93 @@
 <template>
-  <ul id="fader">
-    <li>
-      <a href="#"><img src="../assets/img/fadeAnim/fade_item_1.png"/></a>
-    </li>
-    <li>
-      <a href="#"><img src="../assets/img/fadeAnim/fade_item_2.png"/></a>
-    </li>
-    <li>
-      <a href="#"><img src="../assets/img/fadeAnim/fade_item_3.png"/></a>
-    </li>
-    <li>
-      <a href="#"><img src="../assets/img/fadeAnim/fade_item_4.png"/></a>
-    </li>
-    <li>
-      <a href="#"><img src="../assets/img/fadeAnim/fade_item_5.png"/></a>
-    </li>
-  </ul>
+  <div>
+    <div
+      id="menu-layers-container"
+      class="d-flex justify-content-center align-items-center"
+    >
+      <div id="fader-wrap">
+        <ul id="fader">
+          <li>
+            <a href="#"
+              ><img
+                src="../assets/img/fadeAnim/fade_item_1.png"
+                alt="featured product"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../assets/img/fadeAnim/fade_item_2.png"
+                alt="featured product"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../assets/img/fadeAnim/fade_item_3.png"
+                alt="featured product"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../assets/img/fadeAnim/fade_item_4.png"
+                alt="featured product"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="../assets/img/fadeAnim/fade_item_5.png"
+                alt="featured product"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="menu-panel"></div>
+    </div>
+  </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$menu-width: 140px;
+$menu-height: 280px;
+$anim-item-width: 100px;
+$anim-item-height: 100px;
+$fade-anim-duration: 0.5s;
+$fade-in-start-position: 10px;
+$fade-out-start-position: -10px;
+
+#menu-layers-container {
+  position: relative;
+  width: $menu-width;
+  height: $menu-height;
+}
+
+#menu-panel {
+  width: $menu-width;
+  height: $menu-height;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../assets/img/home/sakura_home_menu.png');
+}
+
+#fader-wrap {
+  position: absolute;
+  width: $anim-item-width;
+  height: $anim-item-height;
+}
+
 #fader {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: $anim-item-width;
+  height: $anim-item-height;
 }
 
 #fader li {
@@ -33,15 +97,21 @@
   left: 0;
 }
 
+#fader li a img {
+  width: $anim-item-width;
+  height: $anim-item-height;
+  object-fit: cover;
+}
+
 .fade-in {
-  animation: fadeInAnim 0.5s forwards;
+  animation: fadeInAnim $fade-anim-duration forwards;
   visibility: visible !important;
 }
 
 @keyframes fadeInAnim {
   0% {
     opacity: 0;
-    left: 60px;
+    left: $fade-in-start-position;
   }
 
   100% {
@@ -51,7 +121,7 @@
 }
 
 .fade-out {
-  animation: fadeOutAnim 0.5s forwards;
+  animation: fadeOutAnim $fade-anim-duration forwards;
 }
 
 @keyframes fadeOutAnim {
@@ -62,10 +132,9 @@
 
   100% {
     opacity: 0;
-    left: -60px;
+    left: $fade-out-start-position;
   }
 }
-
 </style>
 
 <script>
