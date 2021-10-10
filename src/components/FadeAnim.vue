@@ -40,13 +40,13 @@
 
 @keyframes fadeInAnim {
   0% {
-      opacity: 0;
-      left: 60px;
+    opacity: 0;
+    left: 60px;
   }
 
   100% {
-      opacity: 1;
-      left: 0px;
+    opacity: 1;
+    left: 0px;
   }
 }
 
@@ -56,13 +56,13 @@
 
 @keyframes fadeOutAnim {
   0% {
-      left: 0px;
-      opacity: 1;
+    left: 0px;
+    opacity: 1;
   }
 
   100% {
-      opacity: 0;
-      left: -60px;
+    opacity: 0;
+    left: -60px;
   }
 }
 
