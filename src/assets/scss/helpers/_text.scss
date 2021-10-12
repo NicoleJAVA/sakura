@@ -84,3 +84,7 @@
 .break-line-4 {
   @include break-line(4);
 }
+
+.break-line-10 {
+  @include break-line(10);
+}

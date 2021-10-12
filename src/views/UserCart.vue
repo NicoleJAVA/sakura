@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="col">
-            <div class="break-line-4">
+            <div class="break-line-10">
               {{ item.product.title }}
             </div>
           </div>
