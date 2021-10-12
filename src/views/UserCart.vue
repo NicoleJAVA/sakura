@@ -60,6 +60,14 @@
               >
                 <i class="bi bi-plus"></i>
               </button>
+              <button
+                type="button"
+                class="btn btn-link fs-5 ms-3"
+                :disabled="status.loadingItem === item.id"
+                @click="removeCartItem(item.id)"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
             </div>
           </div>
 
