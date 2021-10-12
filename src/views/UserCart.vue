@@ -23,6 +23,7 @@
           <div class="col">
             <div class="break-line-10">
               {{ item.product.title }}
+              <div class="text-info" v-if="item.coupon">已套用優惠券</div>
             </div>
           </div>
 
@@ -60,8 +61,25 @@
                 <i class="bi bi-plus"></i>
               </button>
             </div>
-
           </div>
+
+          <!-- column of subtotal -->
+          <div class="col">
+            <div class="fs-6 fw-300 text-subtitle text-center">
+              <span class="text-primary">NTD</span> $
+              {{ $filters.currency(item.total) }}
+            </div>
+            <div class="text-center">
+              <div v-if="item.final_total !== item.total" class="text-info">
+                折扣價：
+              </div>
+              <div class="fs-6 fw-300 text-subtitle text-center">
+                <span class="text-primary">NTD</span> $
+                {{ $filters.currency(item.final_total) }}
+              </div>
+            </div>
+          </div>
+
         </li>
       </ul>
     </div>
