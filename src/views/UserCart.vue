@@ -2,7 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="container container-custom-width">
     <div class="row mt-4">
-      <ul class="col-md-7">
+      <ul class="col-md-8">
         <li
           v-for="item in cart.carts"
           :key="item.id"
