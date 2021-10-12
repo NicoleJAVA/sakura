@@ -8,6 +8,7 @@
           :key="item.id"
           class="row align-items-center my-3"
         >
+          <!-- column of product image -->
           <div class="col">
             <div class="ratio-wrap" style="--w: 276; --h: 230;">
               <img
@@ -17,11 +18,15 @@
               />
             </div>
           </div>
+
+          <!-- column of product title -->
           <div class="col">
             <div class="break-line-10">
               {{ item.product.title }}
             </div>
           </div>
+
+          <!-- column of product price -->
           <div class="col">
             <div
               v-if="item.product.price !== item.product.origin_price"
@@ -35,6 +40,8 @@
               {{ $filters.currency(item.product.price) }}
             </div>
           </div>
+
+          <!-- column of quantity -->
           <div class="col d-flex align-items-center">
             <div class="cart-item-num text-center">{{ item.qty }}</div>
 
