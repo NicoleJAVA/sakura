@@ -2,7 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="container container-custom-width">
     <div class="row mt-4">
-      <ul class="col-md-8">
+      <ul class="col-md-12 col-lg-8">
         <li
           v-for="item in cart.carts"
           :key="item.id"
@@ -87,10 +87,13 @@
               </div>
             </div>
           </div>
-
         </li>
       </ul>
-    </div>
+
+      <div class="col-md-12 col-lg-4">
+        <div class="bg-section h-100 ms-5"></div>
+        </div>
+      </div>
 
     <div class="row mt-4">
       <div class="col-md-5">
