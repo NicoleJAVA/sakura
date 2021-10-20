@@ -19,6 +19,14 @@ $half-rounded-height: 38px;
 $slider-width: 300px;
 $slider-height: 200px;
 
+.pt-6 {
+  padding-top: $spacer * 4.5;
+}
+
+.mb-6 {
+  margin-bottom: $spacer * 4.5;
+}
+
 .container-custom-width {
   max-width: 1288 px;
 }
@@ -33,4 +41,14 @@ $slider-height: 200px;
   @include media-breakpoint-up(xl) {
     flex: 1 0 0;
   }
+}
+
+// label width for 4 Chinese characters
+.label-4 {
+  width: 100px;
+}
+
+// input width for 4 Chinese characters
+.input-5 {
+  width: 120px;
 }

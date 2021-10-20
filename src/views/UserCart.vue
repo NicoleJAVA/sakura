@@ -91,9 +91,61 @@
       </ul>
 
       <div class="col-md-12 col-lg-4">
-        <div class="bg-section h-100 ms-5"></div>
+        <div class="bg-section h-100 ms-5 pt-6">
+          <GappedDialog class="mx-auto mb-6" />
+
+          <div class="row mb-4">
+            <div class="col-1"></div>
+            <div class="col-4 d-flex">
+              <div class="text-white bg-label label-4 py-2 px-2">總計</div>
+            </div>
+            <div
+              class="col-5 text-secondary align-middle d-flex
+                align-items-center flex-row-reverse"
+            >
+              {{ $filters.currency(cart.total) }}
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-1"></div>
+            <div class="col-4 d-flex">
+              <div class="text-white bg-label label-4 py-2 px-2">折扣價</div>
+            </div>
+            <div
+              class="col-5 text-secondary align-middle d-flex
+                align-items-center flex-row-reverse"
+            >
+              {{ $filters.currency(cart.final_total) }}
+            </div>
+          </div>
+
+          <div class="row mb-5">
+            <div class="col-1"></div>
+            <div class="col-4">
+              <input
+                type="text"
+                class="border border-primary rounded-6 input-5 py-2 px-2 text-secondary"
+                v-model="coupon_code"
+                placeholder="請輸入優惠碼"
+              />
+            </div>
+
+            <div class="col-5 d-flex flex-row-reverse">
+              <button
+                class="btn btn-secondary text-white"
+                type="button"
+                @click="addCouponCode"
+              >
+                套用優惠碼
+              </button>
+            </div>
+          </div>
+          <!-- end of the coupon row -->
         </div>
+        <!-- end of the summary section -->
       </div>
+    </div>
 
     <div class="row mt-4">
       <div class="col-md-5">
@@ -265,6 +317,8 @@
 </template>
 
 <script>
+import GappedDialog from '@/components/GappedDialog.vue';
+
 export default {
   data () {
     return {
@@ -279,6 +333,9 @@ export default {
     };
   },
   inject: ['pushMessage', 'isApiSuccess'],
+  components: {
+    GappedDialog,
+  },
   methods: {
     updateCart (item, quantity) {
       const api = this.$api + `/cart/${item.id}`;

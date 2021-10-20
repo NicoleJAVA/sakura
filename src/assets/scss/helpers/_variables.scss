@@ -12,8 +12,11 @@ $coral: #ffbab2;
 $deep-blue: #003354;
 $saturated-purple: #a1a0e6; //#9494d1;
 $violet: #aaaad6;
-$deep-purple: #906cb0; // #785A92;
+$middle-lavender: #B0B2E1; // #906cb0 #785A92;
 $light-purple: #E5E5FA; // #d4d4ed;
+$light-violet: #E0DFF4;
+
+$secondary: $middle-lavender;
 
 $text-strong-color: $gray-600;
 $subtitle-color: $gray-600;
@@ -21,3 +24,18 @@ $icon-color: $violet;
 $icon-highlight-color: $pink;
 
 $info: $saturated-purple;
+
+$input-placeholder-color: $light-violet;
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $input-placeholder-color;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $input-placeholder-color;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $input-placeholder-color;
+}
