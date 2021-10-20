@@ -13,7 +13,6 @@ $cart-item-num: 70px;
 
 
 $half-rounded-border-radius: 20px;
-$half-rounded-height: 38px;
 
 // slider
 $slider-width: 300px;
@@ -43,14 +42,20 @@ $slider-height: 200px;
   }
 }
 
-// label width for 4 Chinese characters
-.label-4 {
-  width: 100px;
+// label width for 2 Chinese characters
+.label-2 {
+  width: 60px;
 }
 
-// input width for 4 Chinese characters
-.input-5 {
-  width: 120px;
+// label width for 3 Chinese characters
+.label-3 {
+  width: 75px;
+}
+
+
+// label width for 4 Chinese characters
+.label-4 {
+  width: 80px;
 }
 
 // circles with 2 Chinese characters

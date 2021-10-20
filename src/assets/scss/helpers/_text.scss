@@ -73,6 +73,10 @@
   font-weight: 700;
 }
 
+.line-height-1 {
+  line-height: 1;
+}
+
 .break-line-2 {
   @include break-line(2);
 }
