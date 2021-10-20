@@ -142,6 +142,15 @@
             </div>
           </div>
           <!-- end of the coupon row -->
+          <div class="row mb-5 justify-content-center">
+            <button
+              class="btn btn-secondary text-white circle-2 bounce-anim
+            rounded-circle d-flex align-items-center justify-content-center"
+              @click="goToForm"
+            >
+              結帳
+            </button>
+          </div>
         </div>
         <!-- end of the summary section -->
       </div>

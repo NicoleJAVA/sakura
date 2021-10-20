@@ -1,0 +1,25 @@
+.bounce-anim {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  display: inline-block;
+  animation: bounce-script 0.7s ease 2s infinite alternate;
+}
+
+.bounce-anim:hover {
+  animation: none;
+}
+
+@keyframes bounce-script {
+  0% {
+    -webkit-transform: scale(1, 1); // 1.1, 0.9
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1, 1) translateY(-0.5rem); // 0.9, 1.1
+  }
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
