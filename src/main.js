@@ -45,3 +45,6 @@ app.provide('isApiSuccess', isApiSuccess);
 app.provide('categoryName', categoryName);
 app.provide('getFakeImage', getFakeImage);
 app.mount('#app');
+global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
