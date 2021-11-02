@@ -28,7 +28,7 @@
       />
 
       <!-- menu fader animation -->
-      <FadeAnim id="home-fade-anim" />
+      <FadeAnim ref="menuFadeAnim" id="home-fade-anim" />
 
       <!-- sakura rotation animation -->
       <RotateAnim ref="rotateLarge" id="rotate-large" />
@@ -166,6 +166,7 @@ export default {
         this.$refs.rotateLarge.animate();
         this.$refs.rotateSmall.animate();
         this.$refs.mainSlogan.animate();
+        this.$refs.menuFadeAnim.animate();
         this.playAnim();
       }, animDuration);
     },

@@ -66,7 +66,8 @@ $menu-width: 140px;
 $menu-height: 280px;
 $anim-item-width: 100px;
 $anim-item-height: 100px;
-$fade-anim-duration: 0.5s;
+$fade-out-duration: 0.45s;
+$fade-in-duration: 0.9s;
 $fade-in-start-position: 10px;
 $fade-out-start-position: -10px;
 
@@ -123,7 +124,7 @@ $fade-out-start-position: -10px;
 }
 
 .fade-in {
-  animation: fadeInAnim $fade-anim-duration forwards;
+  animation: fadeInAnim $fade-in-duration forwards;
   visibility: visible !important;
 }
 
@@ -140,7 +141,7 @@ $fade-out-start-position: -10px;
 }
 
 .fade-out {
-  animation: fadeOutAnim $fade-anim-duration forwards;
+  animation: fadeOutAnim $fade-out-duration forwards;
 }
 
 @keyframes fadeOutAnim {
@@ -157,6 +158,8 @@ $fade-out-start-position: -10px;
 </style>
 
 <script>
+const nextPhotoDelay = 700;
+
 export default {
   name: 'FadeAnim',
   data () {
@@ -165,6 +168,7 @@ export default {
       animItems: null,
       autoplayId: 0,
       currIndex: 0,
+      syncOtherAnim: true,
     };
   },
 
@@ -198,14 +202,16 @@ export default {
         that.animItems[nextIndex].style.visibility = 'visible';
 
         that.currIndex = nextIndex;
-      }, 450);
+      }, nextPhotoDelay);
     },
   },
 
   mounted () {
     this.initElements();
     this.animItems[this.currIndex].classList.add('fade-in');
-    this.startAnimation();
+    if (!this.syncOtherAnim) {
+      this.startAnimation();
+    }
   },
 };
 </script>
