@@ -131,7 +131,9 @@ export default {
     },
     playAnim () {
       setTimeout(() => {
-        this.$refs.slider.onNextArrowClicked();
+        setTimeout(() => {
+          this.$refs.slider.onNextArrowClicked();
+        }, 50);
         this.$refs.rotateLarge.animate();
         this.$refs.rotateSmall.animate();
         this.$refs.mainSlogan.animate();
