@@ -1,8 +1,8 @@
 <template>
   <div class="primary-background">
-    <RevealAnim ref="mainSlogan" id="main-slogan"/>
     <!-- street -->
     <div id="street" class="position-relative mx-auto">
+      <!-- cafe -->
       <div id="sakura-cafe" class="mx-auto">
         <img
           src="../assets/img/home/sakura_cafe.png"
@@ -33,6 +33,11 @@
       <!-- sakura rotation animation -->
       <RotateAnim ref="rotateLarge" id="rotate-large" />
       <RotateAnim ref="rotateSmall" id="rotate-small" />
+
+      <!-- slogan - reveal anim-->
+      <div id="home-slogan-wrap">
+        <RevealAnim ref="mainSlogan" id="main-slogan" />
+      </div>
     </div>
   </div>
   <div class="slider-wrapper d-flex position-relative">
@@ -52,6 +57,16 @@ $okashi-booth-right-offset: 60px;
 $okashi-booth-bottom-offset: 0px;
 $fade-anim-top-offset: 20px;
 $fade-anim-right-offset: 360px;
+
+$slogan-left-offset: 54px;
+$slogan-top-offset: 20px;
+$slogan-wrap-padding: 8px;
+$slogan-wrap-width: 380px;
+$slogan-wrap-height: 204px;
+$slogan-wrap-bg-color: rgba(249, 239, 255, 0.31);
+$slogan-wrap-bg: $slogan-wrap-bg-color content-box;
+$slogan-wrap-padding-y: 60px;
+$slogan-wrap-padding-x: 20px;
 
 $rotate-large-left-offset: -155px;
 $rotate-large-top-offset: -280px;
@@ -77,6 +92,21 @@ $rotate-small-top-offset: 290px;
   width: $okashi-booth-width;
   right: $okashi-booth-right-offset;
   bottom: $okashi-booth-bottom-offset;
+}
+
+#home-slogan-wrap {
+  position: absolute;
+  left: $slogan-left-offset;
+  top: $slogan-top-offset;
+  width: $slogan-wrap-width;
+  height: $slogan-wrap-height;
+  background-image: url('../assets/img/home/slogan_bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: $slogan-wrap-padding-y $slogan-wrap-padding-x;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #rotate-large {
@@ -120,8 +150,7 @@ export default {
     RevealAnim,
   },
   data () {
-    return {
-    };
+    return {};
   },
   methods: {
     initElements () {

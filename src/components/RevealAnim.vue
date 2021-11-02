@@ -1,5 +1,5 @@
 <template>
-  <h1 class="clip-text text-shorten-anim">You're awesome</h1>
+  <h1 class="clip-text text-shorten-anim">櫻花商品/日韓星巴克櫻花杯代購</h1>
 </template>
 
 <script>
@@ -57,8 +57,7 @@ export default {
       // so that the animation won't flicker
       setTimeout(() => {
         if (this.animator.classList.contains(TEXT_REVEAL_ANIM)) {
-          this.animator
-          .classList.remove(TEXT_REVEAL_ANIM);
+          this.animator.classList.remove(TEXT_REVEAL_ANIM);
         }
       }, 30);
     },
@@ -85,13 +84,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$r: 255;
-$g: 105;
-$b: 180;
-$slogan-color: #000;
+@import '~@/assets/scss/helpers/variables';
+
+$r: $peach-pink-r;
+$g: $peach-pink-g;
+$b: $peach-pink-b;
+$slogan-color: $deep-dull-purple;
+$reveal-anim-font-size: 16px;
 
 body {
-  font-size: 16px;
   overflow-x: hidden;
 }
 
@@ -242,9 +243,6 @@ h1 {
   letter-spacing: 0.1em;
   font-family: Verdana, sans-serif;
   position: relative;
-  font-size: 28.8px;
-  font-weight: 500;
-  margin: 0;
-  padding: 10px 0;
+  font-size: $reveal-anim-font-size;
 }
 </style>
