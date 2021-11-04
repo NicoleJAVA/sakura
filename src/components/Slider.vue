@@ -198,7 +198,7 @@ export default {
 #slider {
   position: absolute;
   /*padding: 3px;*/
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 0px;
   /*overflow: hidden;*/
   -webkit-user-select: none;
   -moz-user-select: none;
