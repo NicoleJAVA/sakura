@@ -1,9 +1,31 @@
 <template>
-  <div class="primary-background">
+  <div class="primary-background position-relative">
+    <!-- sakura bush - left -->
+    <img
+      src="../assets/img/home/sakura_bush.png"
+      class="sakura-bush absolute-bottom absolute-left"
+      alt="sakura bush"
+    />
+
+    <!-- sakura bush - right -->
+    <img
+      src="../assets/img/home/sakura_bush.png"
+      class="sakura-bush absolute-bottom absolute-right"
+      alt="sakura bush"
+    />
+
+    <!-- sakura bush - middle -->
+    <div
+      class="sakura-bush-middle position-absolute absolute-bottom absolute-center"
+    ></div>
+
     <!-- street -->
     <div id="street" class="position-relative mx-auto">
       <!-- cafe -->
-      <div id="sakura-cafe" class="mx-auto">
+      <div
+        id="sakura-cafe"
+        class="position-absolute absolute-bottom absolute-center"
+      >
         <img
           src="../assets/img/home/sakura_cafe.png"
           alt="cafe"
@@ -48,6 +70,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $street-width: 1370px;
+$street-height: 770px;
 $sakura-cafe-width: 800px;
 $yaki-booth-width: 370px;
 $yaki-booth-left-offset: 0px;
@@ -57,6 +80,10 @@ $okashi-booth-right-offset: 60px;
 $okashi-booth-bottom-offset: 0px;
 $fade-anim-top-offset: 20px;
 $fade-anim-right-offset: 360px;
+
+$sakura-bush-width: 1196px;
+$sakura-bush-height: 637px;
+$sakura-bush-opacity: 0.6;
 
 $slogan-left-offset: 54px;
 $slogan-top-offset: 20px;
@@ -75,6 +102,7 @@ $rotate-small-top-offset: 290px;
 
 #street {
   width: $street-width;
+  height: $street-height;
 }
 
 #sakura-cafe {
@@ -92,6 +120,22 @@ $rotate-small-top-offset: 290px;
   width: $okashi-booth-width;
   right: $okashi-booth-right-offset;
   bottom: $okashi-booth-bottom-offset;
+}
+
+.sakura-bush {
+  position: absolute;
+  width: 50%;
+  height: $sakura-bush-height;
+  object-fit: cover;
+}
+
+.sakura-bush-middle {
+  width: $sakura-cafe-width;
+  height: $sakura-bush-height;
+  background-image: url('../assets/img/home/sakura_bush.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: $sakura-bush-opacity;
 }
 
 #home-slogan-wrap {
