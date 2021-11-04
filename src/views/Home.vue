@@ -1,5 +1,6 @@
 <template>
   <div class="primary-background position-relative">
+    <div class="primary-background-full position-absolute"></div>
     <!-- sakura bush - left -->
     <img
       src="../assets/img/home/sakura_bush.png"
