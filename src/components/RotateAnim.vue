@@ -19,7 +19,7 @@ $rotater-default-width: 200px;
 }
 
 .rotate-anim {
-  transition: all 0.4s 0s linear;
+  transition: all 0.4s 0s ease-out;
 }
 
 .no-transition {
