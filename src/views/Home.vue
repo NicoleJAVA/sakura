@@ -50,7 +50,11 @@
       />
 
       <!-- menu fader animation -->
-      <FadeAnim ref="menuFadeAnim" id="home-fade-anim" />
+      <FadeAnim
+        ref="menuFadeAnim"
+        id="home-fade-anim"
+        class="absolute-bottom"
+      />
 
       <!-- sakura rotation animation -->
       <RotateAnim ref="rotateLarge" id="rotate-large" />
@@ -78,7 +82,7 @@ $yaki-booth-bottom-offset: 0px;
 $okashi-booth-width: 271px;
 $okashi-booth-right-offset: 60px;
 $okashi-booth-bottom-offset: 0px;
-$fade-anim-top-offset: 20px;
+
 $fade-anim-right-offset: 360px;
 
 $sakura-bush-width: 1196px;
@@ -167,7 +171,6 @@ $rotate-small-top-offset: 290px;
 
 #home-fade-anim {
   position: absolute;
-  top: $fade-anim-top-offset;
   right: $fade-anim-right-offset;
 }
 </style>
