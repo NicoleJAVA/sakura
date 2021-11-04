@@ -183,9 +183,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$slide-container-width: 6000px;
+
 $slide-width: 300px;
 $slide-height: 200px;
 $window-size: 3;
+
+$arrow-width: 50px;
+$arrow-height: 50px;
+$arrow-font-size: 40px;
+$arrow-line-height: 50px;
+
+$arrow-container-height: 50px;
+$arrow-container-margin-top: -25px;
+
+$indicator-container-width: 150px;
+$indicator-container-height: 30px;
+$indicator-container-line-height: 30px;
+$indicator-container-margin-left: -75px;
+
+$indicator-width: 15px;
+$indicator-height: 15px;
 
 * {
   margin: 0;
@@ -213,8 +231,7 @@ $window-size: 3;
 .slide-container {
   position: absolute;
   list-style-type: none;
-  width: 6000px;
-  /*transition-duration: 0.3s;*/
+  width: $slide-container-width;
 }
 
 .slide-container li {
@@ -236,21 +253,20 @@ $window-size: 3;
 .arrow-container {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: $arrow-container-height;
   top: 50%;
-  margin-top: -25px;
+  margin-top: $arrow-container-margin-top;
   display: none;
 }
 
 .arrow-container span {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  font-size: 40px;
-  /*display: inline-block;*/
+  width: $arrow-width;
+  height: $arrow-height;
+  font-size: $arrow-font-size;
   text-align: center;
-  line-height: 50px;
-  background: rgba(0, 0, 0, 0.2);
+  line-height: $arrow-line-height;
+  background: rgba(0, 0, 0, 0);
   color: white;
 }
 
@@ -266,19 +282,19 @@ $window-size: 3;
 
 .indicator-container {
   position: absolute;
-  width: 150px;
-  height: 30px;
-  line-height: 30px;
+  width: $indicator-container-width;
+  height: $indicator-container-height;
+  line-height: $indicator-container-line-height;
   bottom: 0;
   left: 50%;
-  margin-left: -75px;
+  margin-left: $indicator-container-margin-left;
   text-align: center;
 }
 
 .indicator {
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: $indicator-width;
+  height: $indicator-height;
   border-radius: 100%;
   background: white;
   cursor: pointer;
