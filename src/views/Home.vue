@@ -66,9 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="slider-wrapper d-flex position-relative">
-    <Slider ref="slider" />
-  </div>
+  <Slider ref="slider" />
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

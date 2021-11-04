@@ -183,27 +183,31 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$slide-width: 300px;
+$slide-height: 200px;
+$window-size: 3;
+
 * {
   margin: 0;
   padding: 0;
 }
 
-#slider,
 .slide-container li ul,
 .slide-container li a {
-  width: 300px;
-  height: 200px;
+  width: $slide-width;
+  height: $slide-height;
 }
 
 #slider {
   position: absolute;
-  /*padding: 3px;*/
   margin: 10px 0 0 0px;
-  /*overflow: hidden;*/
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: $slide-width * $window-size;
+  height: $slide-height;
+  overflow: hidden;
 }
 
 .slide-container {
