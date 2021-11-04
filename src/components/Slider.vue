@@ -1,5 +1,5 @@
 <template>
-  <div id="slider">
+  <div class="slider">
     <ul class="slide-container">
       <li>
         <a href="#"><img src="../assets/img/slider/slider_1.png"/></a>
@@ -44,6 +44,7 @@ export default {
   },
   data () {
     return {
+      sliderId: '',
       autoplay: true,
       autoplayDelay: 2000,
       autoplayId: 0,
@@ -58,8 +59,16 @@ export default {
     };
   },
   methods: {
+    init (id) {
+      this.sliderId = id;
+      this.initElements();
+      this.initEvents();
+      if (this.autoplay && !this.syncOtherAnim) {
+        this.startAnimation();
+      }
+    },
     initElements () {
-      this.slider = document.getElementById('slider');
+      this.slider = document.getElementById(this.sliderId);
       this.slides = this.slider.getElementsByTagName('li');
       this.slideContainer = this.slider.getElementsByClassName(
         'slide-container'
@@ -172,11 +181,7 @@ export default {
     },
   },
   mounted () {
-    this.initElements();
-    this.initEvents();
-    if (this.autoplay && !this.syncOtherAnim) {
-      this.startAnimation();
-    }
+    if (!this.syncOtherAnim) this.init();
   },
 };
 </script>
@@ -216,7 +221,7 @@ $indicator-height: 15px;
   height: $slide-height;
 }
 
-#slider {
+.slider {
   position: absolute;
   margin: 10px 0 0 0px;
   -webkit-user-select: none;
@@ -247,7 +252,7 @@ $indicator-height: 15px;
   height: 100%;
 }
 
-#slider:hover .arrow-container {
+.slider:hover .arrow-container {
   display: block;
 }
 .arrow-container {

@@ -64,9 +64,11 @@
       <div id="home-slogan-wrap">
         <RevealAnim ref="mainSlogan" id="main-slogan" />
       </div>
+
+      <!-- bottom slider -->
+      <Slider id="home-slider" ref="slider" class="position-absolute" />
     </div>
   </div>
-  <Slider ref="slider" />
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -96,6 +98,8 @@ $slogan-wrap-bg-color: rgba(249, 239, 255, 0.31);
 $slogan-wrap-bg: $slogan-wrap-bg-color content-box;
 $slogan-wrap-padding-y: 60px;
 $slogan-wrap-padding-x: 20px;
+
+$home-slider-bottom: 20px;
 
 $rotate-large-left-offset: -155px;
 $rotate-large-top-offset: -280px;
@@ -155,6 +159,10 @@ $rotate-small-top-offset: 290px;
   align-items: center;
 }
 
+#home-slider {
+  bottom: $home-slider-bottom;
+}
+
 #rotate-large {
   position: absolute;
   left: $rotate-large-left-offset;
@@ -199,6 +207,7 @@ export default {
   },
   methods: {
     initElements () {
+      this.$refs.slider.init('home-slider');
       this.$refs.rotateLarge.init('rotate-large', lgRotateWidth, sakuraSrc, 1);
       this.$refs.rotateSmall.init('rotate-small', smRotateWidth, sakuraSrc, -1);
       this.$refs.mainSlogan.init('main-slogan');
