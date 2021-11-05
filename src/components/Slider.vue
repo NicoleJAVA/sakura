@@ -118,8 +118,8 @@ export default {
       });
     },
     animate (destinationX) {
-      let speed = 15;
-      let time = 15;
+      let speed = 10;
+      let time = 10;
       const step =
         (destinationX - this.slideContainer.offsetLeft) / this.slideWidth;
 
