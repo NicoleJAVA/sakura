@@ -233,10 +233,12 @@ $indicator-height: 15px;
   position: absolute;
   list-style-type: none;
   width: $slide-container-width;
+  padding: 0px
 }
 
 .slide-container li {
   float: left;
+  padding: 0px;
 }
 
 .slide-container li a {
