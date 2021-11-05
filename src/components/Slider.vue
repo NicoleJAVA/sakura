@@ -118,8 +118,8 @@ export default {
       });
     },
     animate (destinationX) {
-      let speed = 10;
-      let time = 10;
+      let speed = 15;
+      let time = 15;
       const step =
         (destinationX - this.slideContainer.offsetLeft) / this.slideWidth;
 
@@ -190,7 +190,7 @@ export default {
 <style scoped lang="scss">
 $slide-container-width: 6000px;
 
-$slide-width: 300px;
+$slide-width: 200px;
 $slide-height: 200px;
 $window-size: 3;
 
