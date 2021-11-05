@@ -223,7 +223,8 @@ $indicator-height: 15px;
 
 .slider {
   position: absolute;
-  margin: 10px 0 0 0px;
+  margin-left: auto;
+  margin-right: auto;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -250,6 +251,7 @@ $indicator-height: 15px;
 .slide-container li a img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .slider:hover .arrow-container {

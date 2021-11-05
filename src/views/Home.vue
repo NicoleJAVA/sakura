@@ -67,7 +67,7 @@
       </div>
 
       <!-- bottom slider -->
-      <Slider id="home-slider" ref="slider" class="position-absolute" />
+      <Slider id="home-slider" ref="slider" class="position-absolute absolute-center" />
     </div>
   </div>
 </template>
