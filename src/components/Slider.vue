@@ -210,11 +210,6 @@ $indicator-container-margin-left: -75px;
 $indicator-width: 15px;
 $indicator-height: 15px;
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .slide-container li ul,
 .slide-container li a {
   width: $slide-width;
