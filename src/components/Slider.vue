@@ -191,7 +191,7 @@ export default {
 $slide-container-width: 6000px;
 
 $slide-width: 200px;
-$slide-height: 200px;
+$slide-height: 150px;
 $window-size: 3;
 
 $arrow-width: 50px;

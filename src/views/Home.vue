@@ -65,22 +65,22 @@
       <div id="home-slogan-wrap">
         <RevealAnim ref="mainSlogan" id="main-slogan" />
       </div>
-
-      <!-- bottom slider background -->
-      <div
-        class="slider-background-rectangle position-absolute absolute-center"
-      ></div>
-      <div
-        class="slider-background-rounded position-absolute absolute-center"
-      ></div>
-
-      <!-- bottom slider -->
-      <Slider
-        id="home-slider"
-        ref="slider"
-        class="position-absolute absolute-center"
-      />
     </div>
+
+    <!-- bottom slider background -->
+    <div
+      class="slider-background-rectangle position-absolute absolute-center"
+    ></div>
+    <div
+      class="slider-background-rounded position-absolute absolute-center"
+    ></div>
+
+    <!-- bottom slider -->
+    <Slider
+      id="home-slider"
+      ref="slider"
+      class="position-absolute absolute-center"
+    />
   </div>
 </template>
 
@@ -118,13 +118,13 @@ $slider-background-bottom: 20px;
 $slider-border-radius: 120px;
 $slider-background-opacity: 0.2;
 $slider-background-width: 860px;
-$slider-background-height: 240px;
+$slider-background-height: 195px;
 $slider-background-border-opacity: 0.6;
 $slider-background-padding: 5px;
 
 $slider-background-rounded-bottom: 40px;
 $slider-background-rounded-width: 700px;
-$slider-background-rounded-height: 120px;
+$slider-background-rounded-height: 90px;
 $slider-background-rounded-opacity: 0.4;
 
 $rotate-large-left-offset: -155px;
