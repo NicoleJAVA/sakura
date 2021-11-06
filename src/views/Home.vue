@@ -66,8 +66,20 @@
         <RevealAnim ref="mainSlogan" id="main-slogan" />
       </div>
 
+      <!-- bottom slider background -->
+      <div
+        class="slider-background-rectangle position-absolute absolute-center"
+      ></div>
+      <div
+        class="slider-background-rounded position-absolute absolute-center"
+      ></div>
+
       <!-- bottom slider -->
-      <Slider id="home-slider" ref="slider" class="position-absolute absolute-center" />
+      <Slider
+        id="home-slider"
+        ref="slider"
+        class="position-absolute absolute-center"
+      />
     </div>
   </div>
 </template>
@@ -100,7 +112,20 @@ $slogan-wrap-bg: $slogan-wrap-bg-color content-box;
 $slogan-wrap-padding-y: 60px;
 $slogan-wrap-padding-x: 20px;
 
-$home-slider-bottom: 20px;
+$home-slider-bottom: 50px;
+
+$slider-background-bottom: 20px;
+$slider-border-radius: 120px;
+$slider-background-opacity: 0.2;
+$slider-background-width: 860px;
+$slider-background-height: 240px;
+$slider-background-border-opacity: 0.6;
+$slider-background-padding: 5px;
+
+$slider-background-rounded-bottom: 40px;
+$slider-background-rounded-width: 700px;
+$slider-background-rounded-height: 120px;
+$slider-background-rounded-opacity: 0.4;
 
 $rotate-large-left-offset: -155px;
 $rotate-large-top-offset: -280px;
@@ -162,6 +187,23 @@ $rotate-small-top-offset: 290px;
 
 #home-slider {
   bottom: $home-slider-bottom;
+}
+
+.slider-background-rectangle {
+  bottom: $slider-background-bottom;
+  width: $slider-background-width;
+  height: $slider-background-height;
+  border: 1px solid rgba(255, 255, 255, $slider-background-border-opacity);
+  background: rgba(255, 255, 255, $slider-background-opacity) content-box;
+  padding: $slider-background-padding;
+}
+
+.slider-background-rounded {
+  bottom: $slider-background-rounded-bottom;
+  width: $slider-background-rounded-width;
+  height: $slider-background-rounded-height;
+  background: rgba(255, 255, 255, $slider-background-rounded-opacity);
+  border-radius: $slider-border-radius;
 }
 
 #rotate-large {
