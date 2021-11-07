@@ -88,13 +88,15 @@
 <style scoped lang="scss">
 $street-width: 1370px;
 $street-height: 100%;
+
+$street-building-bottom: 80px;
+
 $sakura-cafe-width: 800px;
 $yaki-booth-width: 370px;
 $yaki-booth-left-offset: 0px;
-$yaki-booth-bottom-offset: 0px;
+
 $okashi-booth-width: 271px;
 $okashi-booth-right-offset: 60px;
-$okashi-booth-bottom-offset: 0px;
 
 $fade-anim-right-offset: 360px;
 
@@ -142,18 +144,19 @@ $rotate-small-top-offset: 290px;
 #sakura-cafe {
   width: $sakura-cafe-width;
   height: auto;
+  bottom: $street-building-bottom;
 }
 
 #yaki-booth {
   width: $yaki-booth-width;
   left: $yaki-booth-left-offset;
-  bottom: $yaki-booth-bottom-offset;
+  bottom: $street-building-bottom;
 }
 
 #okashi-booth {
   width: $okashi-booth-width;
   right: $okashi-booth-right-offset;
-  bottom: $okashi-booth-bottom-offset;
+  bottom: $street-building-bottom;
 }
 
 .sakura-bush {
@@ -161,11 +164,13 @@ $rotate-small-top-offset: 290px;
   width: 50%;
   height: $sakura-bush-height;
   object-fit: cover;
+  bottom: $street-building-bottom;
 }
 
 .sakura-bush-middle {
   width: $sakura-bush-middle-width;
   height: $sakura-bush-middle-height;
+  bottom: $street-building-bottom;
 }
 
 #home-slogan-wrap {
@@ -219,6 +224,7 @@ $rotate-small-top-offset: 290px;
 #home-fade-anim {
   position: absolute;
   right: $fade-anim-right-offset;
+  bottom: $street-building-bottom;
 }
 </style>
 
