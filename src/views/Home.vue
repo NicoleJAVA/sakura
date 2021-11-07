@@ -1,6 +1,5 @@
 <template>
   <div class="primary-background position-relative">
-    <div class="primary-background-full position-absolute"></div>
     <!-- sakura bush - left -->
     <img
       src="../assets/img/home/sakura_bush.png"
@@ -88,7 +87,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $street-width: 1370px;
-$street-height: 770px;
+$street-height: 100%;
 $sakura-cafe-width: 800px;
 $yaki-booth-width: 370px;
 $yaki-booth-left-offset: 0px;
