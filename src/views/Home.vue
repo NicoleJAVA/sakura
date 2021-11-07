@@ -88,6 +88,7 @@
 <style scoped lang="scss">
 $street-width: 1370px;
 $street-height: 100%;
+$street-min-height: 760px;
 
 $street-building-bottom: 80px;
 
@@ -139,6 +140,7 @@ $rotate-small-top-offset: 290px;
 #street {
   width: $street-width;
   height: $street-height;
+  min-height: $street-min-height;
 }
 
 #sakura-cafe {
