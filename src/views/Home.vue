@@ -133,9 +133,9 @@ $slider-background-rounded-width: 700px;
 $slider-background-rounded-height: 90px;
 $slider-background-rounded-opacity: 0.4;
 
-$rotate-large-left-offset: -155px;
+$rotate-large-left-offset: -230px;
 $rotate-large-top-offset: -280px;
-$rotate-small-left-offset: -40px;
+$rotate-small-left-offset: -120px;
 $rotate-small-top-offset: 290px;
 
 #street {
