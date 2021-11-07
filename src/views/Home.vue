@@ -235,7 +235,9 @@ import RevealAnim from '../components/RevealAnim';
 const animDuration = 2800;
 
 const lgRotateWidth = 600;
+const lgRotateHeight = 600;
 const smRotateWidth = 250;
+const smRotateHeight = 250;
 
 export default {
   name: 'Home',
@@ -251,8 +253,20 @@ export default {
   methods: {
     initElements () {
       this.$refs.slider.init('home-slider');
-      this.$refs.rotateLarge.init('rotate-large', lgRotateWidth, sakuraSrc, 1);
-      this.$refs.rotateSmall.init('rotate-small', smRotateWidth, sakuraSrc, -1);
+      this.$refs.rotateLarge.init(
+        'rotate-large',
+        lgRotateWidth,
+        lgRotateHeight,
+        sakuraSrc,
+        1
+      );
+      this.$refs.rotateSmall.init(
+        'rotate-small',
+        smRotateWidth,
+        smRotateHeight,
+        sakuraSrc,
+        -1
+      );
       this.$refs.mainSlogan.init('main-slogan');
     },
     playAnim () {

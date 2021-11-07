@@ -50,18 +50,19 @@ export default {
     };
   },
   methods: {
-    init (id, width, src, direction) {
+    init (id, width, height, src, direction) {
       this.rotaterId = id;
       this.direction = direction;
-      this.initElements(width, src);
+      this.initElements(width, height, src);
       this.initEvents();
       if (this.autoplay && !this.syncOtherAnim) {
         this.startAnimation();
       }
     },
-    initElements (width, src) {
+    initElements (width, height, src) {
       this.rotater = document.getElementById(this.rotaterId);
       this.rotater.style.width = width + 'px';
+      this.rotater.style.height = height + 'px';
       this.$refs.rotateImg.src = src;
     },
     initEvents () {
