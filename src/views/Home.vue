@@ -16,9 +16,10 @@
     />
 
     <!-- sakura bush - middle -->
-    <div
+    <img
+      src="../assets/img/home/sakura_bush_middle.png"
       class="sakura-bush-middle position-absolute absolute-bottom absolute-center"
-    ></div>
+    />
 
     <!-- street -->
     <div id="street" class="position-relative mx-auto">
@@ -100,7 +101,9 @@ $fade-anim-right-offset: 360px;
 
 $sakura-bush-width: 1196px;
 $sakura-bush-height: 637px;
-$sakura-bush-opacity: 0.6;
+
+$sakura-bush-middle-width: 746px;
+$sakura-bush-middle-height: 570px;
 
 $slogan-left-offset: 54px;
 $slogan-top-offset: 20px;
@@ -162,12 +165,8 @@ $rotate-small-top-offset: 290px;
 }
 
 .sakura-bush-middle {
-  width: $sakura-cafe-width;
-  height: $sakura-bush-height;
-  background-image: url('../assets/img/home/sakura_bush.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: $sakura-bush-opacity;
+  width: $sakura-bush-middle-width;
+  height: $sakura-bush-middle-height;
 }
 
 #home-slogan-wrap {
