@@ -93,7 +93,8 @@ $street-min-height: 760px;
 $street-building-bottom: 80px;
 
 $sakura-cafe-width: 800px;
-$yaki-booth-width: 370px;
+
+$yaki-booth-width: 363px;
 $yaki-booth-left-offset: 0px;
 
 $okashi-booth-width: 271px;
