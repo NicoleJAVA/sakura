@@ -101,8 +101,8 @@ $okashi-booth-right-offset: 60px;
 
 $fade-anim-right-offset: 360px;
 
-$sakura-bush-width: 1196px;
-$sakura-bush-height: 637px;
+$sakura-bush-width: 882px;
+$sakura-bush-height: 472px;
 
 $sakura-bush-middle-width: 746px;
 $sakura-bush-middle-height: 570px;
@@ -163,9 +163,9 @@ $rotate-small-top-offset: 290px;
 
 .sakura-bush {
   position: absolute;
-  width: 50%;
+  width: $sakura-bush-width;
   height: $sakura-bush-height;
-  object-fit: cover;
+  object-fit: contain;
   bottom: $street-building-bottom;
 }
 
