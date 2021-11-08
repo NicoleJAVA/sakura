@@ -62,7 +62,7 @@
 <style scoped lang="scss">
 $street-lamp-width: 110px;
 $street-lamp-height: 200px;
-$menu-width: 140px;
+$menu-width: 157px;
 $menu-height: 280px;
 $anim-item-width: 100px;
 $anim-item-height: 100px;
