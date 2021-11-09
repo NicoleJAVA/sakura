@@ -187,7 +187,6 @@ $rotate-small-top-offset: 290px;
   background-repeat: no-repeat;
   padding: $slogan-wrap-padding-y $slogan-wrap-padding-x;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 

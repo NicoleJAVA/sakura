@@ -1,5 +1,5 @@
 <template>
-  <h1 class="clip-text text-shorten-anim">櫻花商品/日韓星巴克櫻花杯代購</h1>
+  <h1 class="text-shorten-anim">櫻花商品/日韓星巴克櫻花杯代購</h1>
 </template>
 
 <script>
@@ -92,8 +92,30 @@ $b: $peach-pink-b;
 $slogan-color: $deep-dull-purple;
 $reveal-anim-font-size: 16px;
 
-body {
-  overflow-x: hidden;
+.text-shorten-anim {
+  animation: text-shorten-clip 0.4s linear 1 forwards;
+}
+
+@keyframes text-shorten-clip {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.text-reveal-anim {
+  animation: text-reveal-clip 0.9s ease-out 1 forwards;
+}
+
+@keyframes text-reveal-clip {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .clip-text {
@@ -167,7 +189,7 @@ body {
   initial-value: 0;
 }
 
-.text-reveal-anim {
+.text-reveal-anim-gradient {
   background-image: linear-gradient(
     var(--a),
     var(--c1) var(--x1),
@@ -177,10 +199,10 @@ body {
     rgba($r, $g, $b, var(--a5)) 100%
   );
   background-size: 100% 100%;
-  animation: text-reveal-clip 0.9s ease-out 1 forwards;
+  animation: text-reveal-gradient-clip 0.9s ease-out 1 forwards;
 }
 
-@keyframes text-reveal-clip {
+@keyframes text-reveal-gradient-clip {
   0% {
     --x2: 0%;
     --x3: 0%;
@@ -212,7 +234,7 @@ body {
   }
 }
 
-.text-shorten-anim {
+.text-shorten-anim-gradient {
   background-image: linear-gradient(
     var(--a),
     $slogan-color 0%,
@@ -220,11 +242,11 @@ body {
     var(--c2) var(--x2),
     transparent 100%
   );
-  animation: text-shorten-clip 0.4s linear 1 forwards;
+  animation: text-shorten-gradient-clip 0.4s linear 1 forwards;
   background-size: 100% 100%;
 }
 
-@keyframes text-shorten-clip {
+@keyframes text-shorten-gradient-clip {
   0% {
     --x1: 99%;
     --x2: 100%;
@@ -240,9 +262,12 @@ body {
 }
 
 h1 {
+  color: $slogan-color;
   letter-spacing: 0.1em;
   font-family: Verdana, sans-serif;
   position: relative;
   font-size: $reveal-anim-font-size;
+  white-space: nowrap;
+  overflow: hidden;
 }
 </style>
