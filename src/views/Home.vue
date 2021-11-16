@@ -26,6 +26,7 @@
       <div
         id="sakura-cafe"
         class="position-absolute absolute-bottom absolute-center"
+        ref="sakuraCafe"
       >
         <img
           src="../assets/img/home/sakura_cafe.png"
@@ -40,6 +41,7 @@
         src="../assets/img/home/sakura_yaki_booth.png"
         alt="yaki booth"
         class="position-absolute"
+        ref="yakiBooth"
       />
 
       <!-- okashi booth -->
@@ -48,6 +50,7 @@
         src="../assets/img/home/sakura_okashi_booth.png"
         alt="okashi booth"
         class="position-absolute"
+        ref="okashiBooth"
       />
 
       <!-- menu fader animation -->
@@ -148,18 +151,21 @@ $rotate-small-top-offset: 290px;
   width: $sakura-cafe-width;
   height: auto;
   bottom: $street-building-bottom;
+  cursor: pointer;
 }
 
 #yaki-booth {
   width: $yaki-booth-width;
   left: $yaki-booth-left-offset;
   bottom: $street-building-bottom;
+  cursor: pointer;
 }
 
 #okashi-booth {
   width: $okashi-booth-width;
   right: $okashi-booth-right-offset;
   bottom: $street-building-bottom;
+  cursor: pointer;
 }
 
 .sakura-bush {
@@ -274,6 +280,18 @@ export default {
         -1
       );
       this.$refs.mainSlogan.init('main-slogan');
+      this.setListeners();
+    },
+    setListeners () {
+      this.$refs.sakuraCafe.addEventListener('click', () => {
+        this.$router.push('/user/shop');
+      });
+      this.$refs.yakiBooth.addEventListener('click', () => {
+        this.$router.push('/user/cart');
+      });
+      this.$refs.okashiBooth.addEventListener('click', () => {
+        this.$router.push('/login');
+      });
     },
     playAnim () {
       setTimeout(() => {
