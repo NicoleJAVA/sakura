@@ -2,19 +2,19 @@
   <div class="slider">
     <ul class="slide-container">
       <li>
-        <a href="#"><img src="../assets/img/slider/slider_1.png"/></a>
+        <a href="#/user/shop"><img src="../assets/img/slider/slider_1.png"/></a>
       </li>
       <li>
-        <a href="#"><img src="../assets/img/slider/slider_2.png"/></a>
+        <a href="#/user/shop"><img src="../assets/img/slider/slider_2.png"/></a>
       </li>
       <li>
-        <a href="#"><img src="../assets/img/slider/slider_3.png"/></a>
+        <a href="#/user/shop"><img src="../assets/img/slider/slider_3.png"/></a>
       </li>
       <li>
-        <a href="#"><img src="../assets/img/slider/slider_4.png"/></a>
+        <a href="#/user/shop"><img src="../assets/img/slider/slider_4.png"/></a>
       </li>
       <li>
-        <a href="#"><img src="../assets/img/slider/slider_5.png"/></a>
+        <a href="#/user/shop"><img src="../assets/img/slider/slider_5.png"/></a>
       </li>
     </ul>
     <div v-show="!isSyncOtherAnim()" class="arrow-container">
