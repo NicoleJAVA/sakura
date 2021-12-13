@@ -1,14 +1,19 @@
 <template>
   <div class="header-container">
-    <a href="/">
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <use xlink:href="#Logo"></use>
-      </svg>
+    <a href="#/">
+      <img
+        class="sakura-logo w-100"
+        src="../assets/img/Navbar/sakura_logo.png"
+        alt="sakura logo"
+      />
     </a>
     <div class="d-flex justify-content-center align-items-center">
       <div class="navbar-logo"></div>
-      <div class="d-flex header-nav align-items-center justify-content-center w-100
-      primary-font letter-spacing-md fw-300" ref="fixedNav">
+      <div
+        class="d-flex header-nav align-items-center justify-content-center w-100
+      primary-font letter-spacing-md fw-300"
+        ref="fixedNav"
+      >
         <router-link to="/" class="nav-link">HOME</router-link>
         <router-link to="/user/shop" class="nav-link">SHOP</router-link>
         <router-link to="/user/cart" class="nav-link">CART</router-link>
@@ -16,6 +21,14 @@
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.sakura-logo {
+  height: 240px;
+  object-fit: cover;
+}
+
+</style>
 
 <script>
 export default {
