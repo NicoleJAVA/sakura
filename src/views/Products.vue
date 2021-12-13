@@ -8,6 +8,7 @@
   <table class="table mt-4">
     <thead>
       <tr>
+        <th width="100">圖片</th>
         <th width="120">分類</th>
         <th>產品名稱</th>
         <th width="120">原價</th>
@@ -18,6 +19,9 @@
     </thead>
     <tbody>
       <tr v-for="item in products" :key="item.id">
+        <td>
+          <img :src="item.imageUrl" class="img-fluid"/>
+        </td>
         <td>{{ item.category }}</td>
         <td>{{ item.title }}</td>
         <td class="text-right">
