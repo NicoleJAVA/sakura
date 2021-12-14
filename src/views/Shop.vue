@@ -27,7 +27,7 @@
                 ><img
                   class="opacity-anim ratio"
                   alt="image of the product"
-                  :src="getFakeImage()"
+                  :src="item.imageUrl"
               /></a>
             </div>
             <div>
@@ -53,7 +53,8 @@
               <div
                 class="d-flex align-items-center justify-content-center icons"
               >
-                <button type="button" class="btn btn-icon py-0 px-1">
+                <button type="button" class="btn btn-icon py-0 px-1"
+                @click="addToCart(item.id)">
                   <i class="bi bi-cart text-white fs-normal"></i>
                 </button>
                 <button type="button" class="btn btn-icon py-0 px-1">
@@ -186,6 +187,7 @@ export default {
       this.isLoading = true;
       this.$http.get(api).then(response => {
         this.isLoading = false;
+        console.log('response data': ', response.data.products);
         this.allProducts = response.data.products;
         this.allProducts.forEach(item => {
           if (!(item.category in this.products)) {
