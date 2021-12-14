@@ -187,7 +187,7 @@ export default {
       this.isLoading = true;
       this.$http.get(api).then(response => {
         this.isLoading = false;
-        console.log('response data': ', response.data.products);
+        console.log('response data ', response.data.products);
         this.allProducts = response.data.products;
         this.allProducts.forEach(item => {
           if (!(item.category in this.products)) {
