@@ -143,7 +143,7 @@ $rotate-small-top-offset: 290px;
 
 #street {
   width: $street-width;
-  height: $street-height;
+  height: 100vh;
   min-height: $street-min-height;
 }
 
