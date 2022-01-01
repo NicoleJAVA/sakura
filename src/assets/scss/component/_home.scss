@@ -1,4 +1,10 @@
 #app {
   min-width: max-content;
   width: 100%;
+  max-width: $app-max-width;
+  margin: auto;
+}
+
+body {
+  background-color: lavender;
 }
