@@ -1,6 +1,6 @@
 <template>
   <Navbar></Navbar>
-  <div class="container-fluid mt-3 position-relative">
+  <div class="container-fluid pt-3 position-relative bg-white">
     <ToastMessages></ToastMessages>
     <router-view />
   </div>

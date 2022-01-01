@@ -1,8 +1,8 @@
 <template>
-  <div class="header-container">
+  <div class="header-container bg-white">
     <a href="#/">
       <img
-        class="sakura-logo w-100"
+        class="sakura-logo mx-auto d-block"
         src="../assets/img/Navbar/sakura_logo.png"
         alt="sakura logo"
       />
